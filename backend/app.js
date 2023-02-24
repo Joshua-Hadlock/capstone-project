@@ -35,15 +35,32 @@ app.use(passport.initialize())
 app.use(passport.session())
 require("./auth/passportConfig")(passport)
 
+function checkAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        res.locals.user = req.user;
+        return next()
+    }
+    console.log('this does not work');
+}
+
+function captureData(req, res, next) {
+    res.locals.data = req.data
+}
 //----------------------------------------- END OF MIDDLEWARE---------------------------------------------------
 
 app.get('/', (req, res) => {
     res.send('hello')
 })
-app.get('/getAllUsers', db.getAllUsers)
+app.get('/getAllUsers', checkAuthenticated, db.getAllUsers)
 
-app.post('/login', passport.authenticate('local',{ failureMessage: 'not good',failureRedirect: '/' }), (req, res) => {
+app.post('/login', passport.authenticate('local',{ failureMessage: 'not good',failureRedirect: '/notWorking' }), (req, res) => {
     res.send('Authorized')
+})
+
+app.get('/getLoginUser', checkAuthenticated, db.getLoginUser)
+
+app.post('/register', captureData, db.register, (req, res) => {
+    res.send('Created user')
 })
 
 app.listen(port, () => {

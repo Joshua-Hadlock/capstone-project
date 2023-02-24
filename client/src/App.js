@@ -19,7 +19,7 @@ function App() {
         password: registerPassword,
       },
       withCredentials: true,
-      url: "http://localhost:4001/register",
+      url: "/register",
     }).then((res) => console.log(res));
   };
   const login = () => {
@@ -37,7 +37,7 @@ function App() {
     Axios({
       method: "GET",
       withCredentials: true,
-      url: "http://localhost:4001/getLoginUser",
+      url: "/getLoginUser",
     }).then((res) => {
       if(res.data.username)
         setData(res.data)
