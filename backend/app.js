@@ -63,6 +63,10 @@ app.post('/register', captureData, db.register, (req, res) => {
     res.send('Created user')
 })
 
+app.get('/notWorking', (req, res) => {
+    res.send('Incorrect EVERYTHING')
+})
+
 app.listen(port, () => {
     console.log(`server is up on port ${port}`)
 })
