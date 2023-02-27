@@ -67,6 +67,11 @@ app.get('/notWorking', (req, res) => {
     res.send('Incorrect EVERYTHING')
 })
 
+
+app.get('*', function(req, res) {
+    res.sendFile('index.html', {root: path.join(__dirname, '../client/build/')});
+  });
+
 app.listen(port, () => {
     console.log(`server is up on port ${port}`)
 })
