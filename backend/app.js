@@ -6,15 +6,29 @@ const cookieParser = require("cookie-parser")
 const session = require("express-session")
 const path = require('path')
 var bodyParser = require('body-parser');
+const jwt = require('jsonwebtoken')
+const { expressjwt } = require('express-jwt');
+const logger = require('./config/logger.js')
+const morgan = require('morgan')
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
 const app = express()
 const db = require('./db/index.js')
 
 const port = process.env.PORT || 4001
+const secret = process.env.SECRET || 'supersecret';
 const reactClientURL = 'http://localhost:3000' // react client
 
+const morganMiddleware = morgan(
+    'tiny',
+    {
+      stream: {
+        write: (message) => logger.http(message.trim())
+      }
+    }
+  )
 
 // Middleware
+app.use(morganMiddleware)
 app.use(express.static('../client/build'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -54,6 +68,7 @@ function captureData(req, res, next) {
 //----------------------------------------- END OF MIDDLEWARE---------------------------------------------------
 
 app.get('/', (req, res) => {
+    logger.debug('in home page')
     res.send('hello')
 })
 app.get('/getAllUsers', checkAuthenticated, db.getAllUsers)
