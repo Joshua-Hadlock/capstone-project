@@ -5,6 +5,7 @@ const passport = require("passport")
 const cookieParser = require("cookie-parser")
 const session = require("express-session")
 const path = require('path')
+var bodyParser = require('body-parser');
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
 const app = express()
 const db = require('./db/index.js')
@@ -17,6 +18,7 @@ const reactClientURL = 'http://localhost:3000' // react client
 app.use(express.static('../client/build'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(
     cors({
         origin: reactClientURL, // <-- location of the react app we're connecting to
@@ -44,7 +46,10 @@ function checkAuthenticated(req, res, next) {
 }
 
 function captureData(req, res, next) {
-    res.locals.data = req.data
+    console.log(req.body)
+    res.locals.data = req.body
+    console.log(res.locals.data)
+    return next()
 }
 //----------------------------------------- END OF MIDDLEWARE---------------------------------------------------
 
@@ -67,6 +72,13 @@ app.get('/notWorking', (req, res) => {
     res.send('Incorrect EVERYTHING')
 })
 
+app.get('/logout', (req, res) => {
+    console.log('I ran')
+    req.logOut(function(err) {
+        if (err) { return next(err);}
+        res.send('logged out')
+    })
+})
 
 app.get('*', function(req, res) {
     res.sendFile('index.html', {root: path.join(__dirname, '../client/build/')});
