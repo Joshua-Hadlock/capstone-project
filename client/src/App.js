@@ -7,6 +7,7 @@ import React, { useState } from "react";
 
 // import pages
 import Testing from './pages/test';
+import TitlePage from './pages/titlePage';
 
 
 
@@ -17,6 +18,7 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" element={<Testing />}></Route>
+          <Route exact path="/title" element={<TitlePage />}></Route>
         </Routes>
       </Router>
     )
