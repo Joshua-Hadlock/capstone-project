@@ -1,5 +1,7 @@
 export default function TitlePage() {
     return (
-        <div>Title</div>
+        <div>
+            <h1>Title</h1>
+        </div>
     )
 }
