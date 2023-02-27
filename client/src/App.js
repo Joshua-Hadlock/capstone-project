@@ -7,7 +7,7 @@ import React, { useState } from "react";
 
 // import pages
 import Testing from './pages/test';
-import TitlePage from './pages/TitlePage';
+import TitlePage from './pages/titlePage';
 import Home from './pages/home';
 import PageNotFound from './pages/PageNotFound'
 
