@@ -7,7 +7,7 @@ import React, { useState } from "react";
 
 // import pages
 import Testing from './pages/test';
-import TitlePage from './pages/TitlePage';
+import About from './pages/About';
 import Home from './pages/home';
 import PageNotFound from './pages/PageNotFound'
 
@@ -21,7 +21,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
           <Route path='/test' element={<Testing />}></Route>
-          <Route path="/title" element={<TitlePage />}></Route>
+          <Route path="/about" element={<About />}></Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Router>

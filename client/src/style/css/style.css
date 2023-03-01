@@ -1,9 +1,368 @@
-body {
-  background-color: red;
+* {
+  margin: 0;
 }
 
-div {
-  background-color: green;
+body {
+  background-color: white;
+}
+
+.body {
+  width: 100%;
+  height: 1500px;
+  background-color: white;
+}
+.body .header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 20000;
+}
+.body .header a {
+  color: white;
+  text-decoration: none;
+}
+.body .header .headerLeft {
+  width: 33.33%;
+  height: 100%;
+  background-color: black;
+  text-transform: uppercase;
+}
+.body .header .headerLeft ul {
+  margin-top: 35px;
+}
+.body .header .headerLeft ul li {
+  display: inline;
+  padding: 0px 15px;
+  color: white;
+  transition: 0.5s;
+}
+.body .header .headerLeft ul li:hover {
+  font-size: 10px;
+}
+.body .header .headerMiddle {
+  width: 33.33%;
+  height: 100%;
+  background-color: black;
+}
+.body .header .headerMiddle .logo {
+  width: 80px;
+  height: 80px;
+  background-image: url(../../images/mcqLogo.png);
+  background-size: cover;
+  margin: 0 auto;
+  position: relative;
+  top: 8px;
+}
+.body .header .headerRight {
+  width: 33.33%;
+  height: 100%;
+  background-color: black;
+  display: inline;
+  text-transform: uppercase;
+}
+.body .header .headerRight ul {
+  margin-top: 35px;
+}
+.body .header .headerRight ul li {
+  display: inline;
+  padding: 0px 15px;
+  color: white;
+  transition: 0.5s;
+}
+.body .header .headerRight ul li:hover {
+  font-size: 10px;
+}
+.body .greeting {
+  width: 100%;
+  height: 90vh;
+  background-color: #FDBC58;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 5px solid black;
+}
+.body .greeting .greetingText {
+  font-size: 80px;
+  width: 700px;
+  height: 500px;
+  position: relative;
+  left: 200px;
+  top: 200px;
+}
+.body .greeting .greetingText button {
+  width: 300px;
+  height: 60px;
+  background-color: black;
+  border: none;
+  position: relative;
+  top: 70px;
+  left: -240px;
+  border-radius: 50px;
+  color: white;
+  font-size: 20px;
+}
+.body .greeting .greetingText .login {
+  font-size: 15px;
+  width: 500px;
+  text-align: center;
+  position: relative;
+  top: 80px;
+  left: -90px;
+  color: white;
+}
+.body .greeting .books {
+  width: 500px;
+  height: 500px;
+  background-image: url(../../images/books.png);
+  background-size: cover;
+  margin-left: 400px;
+  margin-top: 100px;
+}
+.body .aboutUsSection {
+  width: 100%;
+  height: 600px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+}
+.body .aboutUsSection .aboutUsText {
+  width: 700px;
+  height: 200px;
+  margin: 200px;
+}
+.body .aboutUsSection .aboutUsText h1 {
+  font-size: 20px;
+}
+.body .aboutUsSection .aboutUsText .division {
+  width: 200px;
+  height: 5px;
+  background-color: #FDBC58;
+  margin-top: 10px;
+}
+.body .aboutUsSection .aboutUsText h4 {
+  font-size: 40px;
+  margin-top: 20px;
+  color: #995e05;
+  font-family: "Raleway", sans-serif;
+}
+.body .aboutUsSection .aboutUsText p {
+  font-size: 15px;
+  margin-top: 20px;
+}
+.body .aboutUsSection .aboutUsText button {
+  width: 300px;
+  height: 50px;
+  margin-top: 20px;
+  background-color: #e09a33;
+  border: none;
+  border-radius: 10px;
+}
+.body .aboutUsSection .aboutUsImage {
+  width: 700px;
+  height: 500px;
+  background-image: url(../../images/teacherDuck.png);
+  background-size: cover;
+  position: relative;
+  top: 50px;
+  right: 100px;
+}
+.body footer {
+  width: 100%;
+  height: 300px;
+  background-color: black;
+}
+.body .aboutGreeting {
+  width: 100%;
+  height: 500px;
+  background-image: url(../../images/books.jpeg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+.body .aboutGreeting .blackout {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.592);
+}
+.body .aboutGreeting .blackout h1 {
+  color: white;
+  font-family: "Annie Use Your Telescope", cursive;
+  font-size: 80px;
+  text-align: center;
+  position: relative;
+  top: 100px;
+}
+.body .aboutGreeting .blackout .devider {
+  width: 150px;
+  height: 5px;
+  background-color: white;
+  margin: 0 auto;
+  position: relative;
+  top: 120px;
+}
+.body .aboutGreeting .blackout h2 {
+  text-align: center;
+  color: white;
+  position: relative;
+  font-family: "Raleway", sans-serif;
+  top: 150px;
+}
+.body .aboutGreeting .blackout p {
+  text-align: center;
+  color: white;
+  position: relative;
+  top: 230px;
+}
+.body .aboutGreeting .blackout .arrow {
+  width: 50px;
+  height: 50px;
+  background-image: url(../../images/arrow.png);
+  background-size: cover;
+  margin: 0 auto;
+  position: relative;
+  top: 250px;
+  animation: myAnim 4s ease 0s infinite normal forwards;
+}
+.body .aboutDescription {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+}
+.body .aboutDescription .descText {
+  width: 900px;
+  height: 200px;
+  position: relative;
+  left: 100px;
+  top: 130px;
+}
+.body .aboutDescription .descText h1 {
+  font-family: "Raleway", sans-serif;
+  font-size: 45px;
+}
+.body .aboutDescription .descText h3 {
+  margin-top: 20px;
+}
+.body .aboutDescription .us {
+  width: 600px;
+  height: 500px;
+  position: relative;
+  left: 250px;
+  top: 20px;
+}
+.body .aboutDescription .isaac {
+  width: 300px;
+  height: 300px;
+  background-color: rgb(127, 159, 255);
+  background-image: url(../../images/me.png);
+  background-size: cover;
+}
+.body .aboutDescription .josh {
+  width: 300px;
+  height: 300px;
+  background-color: rgb(127, 255, 191);
+  background-image: url(../../images/josh.png);
+  background-size: cover;
+  position: relative;
+  left: 200px;
+  top: -100px;
+  z-index: 10;
+}
+.body .ArtWork {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../../images/mainImage.jpg);
+  background-size: cover;
+  position: relative;
+  top: 30px;
+}
+.body .ArtWork div h1 {
+  width: 50%;
+  padding: 30px;
+  font-family: "Roboto", sans-serif;
+  z-index: 3;
+  color: black;
+}
+.body .ArtWork .filler {
+  width: 100px;
+  height: 100px;
+}
+.body .ArtWork:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 10000;
+}
+.body .ArtWork:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7333333333);
+  z-index: 10000;
+  mix-blend-mode: color;
+}
+.body .ArtWork img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+@keyframes myAnim {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  10%, 30%, 50%, 70% {
+    transform: translateY(-8px);
+  }
+  20%, 40%, 60% {
+    transform: translateY(8px);
+  }
+  80% {
+    transform: translateY(6.4px);
+  }
+  90% {
+    transform: translateY(-6.4px);
+  }
+}
+@keyframes SecondAni {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
