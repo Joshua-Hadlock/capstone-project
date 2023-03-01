@@ -4,7 +4,7 @@ export default function Home() {
             <div class="header">
                 <div class="headerLeft">
                     <ul>
-                        <li>Help</li>
+                        <li><a href="/help">Help</a></li>
                         <li><a href="/test">Sign Up</a></li>
                     </ul>
                 </div>

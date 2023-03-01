@@ -323,6 +323,77 @@ body {
   object-fit: cover;
   pointer-events: none;
 }
+.body .helpGreeting {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+.body .helpGreeting .aside {
+  width: 20%;
+  height: 100%;
+  background-color: #FDBC58;
+}
+.body .helpGreeting .helpContent {
+  width: 80%;
+  height: 100vh;
+  background-color: white;
+}
+.body .helpGreeting .helpContent .helpImage {
+  width: 100%;
+  background-image: url(../../images/lake.webp);
+  background-size: cover;
+  background-position: center;
+}
+.body .helpGreeting .helpContent .helpImage .helpImageBlackout {
+  width: 100%;
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.521);
+}
+.body .helpGreeting .helpContent .helpImage h1 {
+  text-align: center;
+  position: relative;
+  font-size: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  color: white;
+}
+.body .helpGreeting .helpContent .icons {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+  justify-content: center;
+}
+.body .helpGreeting .helpContent .icons .helpChat {
+  width: 100px;
+  height: 100px;
+  background-image: url(../../images/helpIcon1.png);
+  background-size: cover;
+  margin: 0 auto;
+}
+.body .helpGreeting .helpContent .icons .flag {
+  width: 100px;
+  height: 100px;
+  background-image: url(../../images/flag.png);
+  background-size: cover;
+  margin: 0 auto;
+}
+.body .helpGreeting .helpContent .icons .email {
+  width: 100px;
+  height: 100px;
+  background-image: url(../../images/email.png);
+  background-size: cover;
+  margin: 0 auto;
+}
+.body .helpGreeting .helpContent .icons .start {
+  width: 100px;
+  height: 100px;
+  background-image: url(../../images/start.png);
+  background-size: cover;
+  margin: 0 auto;
+}
 
 @keyframes myAnim {
   0%, 100% {
