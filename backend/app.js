@@ -95,6 +95,12 @@ app.get('/logout', (req, res) => {
     })
 })
 
+app.get('/getAllClasses', db.getAllClasses)
+
+app.post('/addClass', checkAuthenticated, captureData, db.addStudentClass, (req, res) => {
+    res.send('it worked!!!')
+})
+
 app.get('*', function(req, res) {
     res.sendFile('index.html', {root: path.join(__dirname, '../client/build/')});
   });

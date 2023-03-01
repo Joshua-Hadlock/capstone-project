@@ -10,6 +10,8 @@ export default function Testing() {
   const [message, setMessage] = useState(null);
   const [userList, setUserList] = useState(null);
   const [logins, setLogins] = useState(null);
+  const [success, setSuccess] = useState(null);
+  const [classId, setClassId] = useState(null);
   const register = () => {
     Axios({
       method: "POST",
@@ -65,7 +67,18 @@ export default function Testing() {
       setMessage(res.data);
     });
   }
-
+  const addStudentClass = () => {
+    Axios({
+      method: "POST",
+      data: {
+        selectedClass: classId,
+      },
+      withCredentials: true,
+      url: "addClass",
+    }).then((res) => {
+      setSuccess(res.data);
+    })
+  }
   return (
     <div className="App">
       <div>
@@ -109,6 +122,15 @@ export default function Testing() {
         <h1>Logout</h1>
         <button onClick={logout}>Submit</button>
         {message ? <h1>{message}</h1> : null}
+      </div>
+      <div>
+        <h1>Add Class</h1>
+        <h2>{success}</h2>
+        <input
+          placeholder="classId"
+          onChange={(e) => setClassId(e.target.value)}
+        />
+        <button onClick={addStudentClass}>Submit</button>
       </div>
 
     </div>
