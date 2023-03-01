@@ -12,6 +12,7 @@ export default function Testing() {
   const [logins, setLogins] = useState(null);
   const [success, setSuccess] = useState(null);
   const [classId, setClassId] = useState(null);
+  const [classes, setClasses] = useState(null);
   const register = () => {
     Axios({
       method: "POST",
@@ -79,6 +80,17 @@ export default function Testing() {
       setSuccess(res.data);
     })
   }
+  const getYourClasses = () => {
+    Axios({
+      method: "GET",
+      withCredentials: true,
+      url: "/allYourClasses",
+    }).then((res) => {
+      setClasses(res.data)
+    })
+  }
+
+
   return (
     <div className="App">
       <div>
@@ -131,6 +143,11 @@ export default function Testing() {
           onChange={(e) => setClassId(e.target.value)}
         />
         <button onClick={addStudentClass}>Submit</button>
+      </div>
+      <div>
+        <h1>Get your classes</h1>
+        <button onClick={getYourClasses}>Submit</button>
+        {classes ? <h1>Your Classes <ul>{classes.map((item)=><li key={item._id}>{item.title}</li>)}</ul></h1> : null}
       </div>
 
     </div>

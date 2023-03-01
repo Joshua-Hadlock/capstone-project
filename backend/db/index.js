@@ -55,9 +55,16 @@ exports.getAllClasses = async (req, res) => {
 }
 
 exports.addStudentClass = async (req, res) => {
-    console.log(res.locals.user.id)
     pool.query(`insert into user_course (courses_id, users_id)
 
     values
     ((select id from courses where id = $1), (select id from users where id = $2))`, [req.body.selectedClass, res.locals.user.id])
+}
+
+exports.getAllYourClasses = async (req, res) => {
+    console.log('running')
+    pool.query(`select title from courses where id in (select courses_id from user_course where users_id = $1)`, [res.locals.user.id], (err, results) => {
+        if (err) throw err;
+        res.status(200).json(results.rows);
+    })
 }

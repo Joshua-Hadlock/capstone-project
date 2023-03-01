@@ -54,9 +54,21 @@ require("./auth/passportConfig")(passport)
 function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         res.locals.user = req.user;
-        return next()
+        return next();
+    } else {
+        res.redirect('/')
     }
-    console.log('this does not work');
+    
+}
+
+function checkAdmin(req, res, next) {
+    console.log(res.locals.user)
+    if (res.locals.user.is_admin) {
+        return next();
+    } else {
+        res.redirect('/')
+    }
+    
 }
 
 function captureData(req, res, next) {
@@ -99,6 +111,12 @@ app.get('/getAllClasses', db.getAllClasses)
 
 app.post('/addClass', checkAuthenticated, captureData, db.addStudentClass, (req, res) => {
     res.send('it worked!!!')
+})
+
+app.get('/allYourClasses', checkAuthenticated, db.getAllYourClasses);
+
+app.get('/admin', checkAuthenticated, checkAdmin, (req, res) => {
+    res.send('hello there')
 })
 
 app.get('*', function(req, res) {
