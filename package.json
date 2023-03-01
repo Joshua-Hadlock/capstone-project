@@ -13,5 +13,7 @@
   },
   "keywords": [],
   "author": "Joshua Hadlock",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+  }
 }

@@ -40,7 +40,7 @@ exports.getLoginUser = async (req, res) => {
 }
 
 exports.register = async (req, res) => {
-    pool.query(`insert into users (username, password) values ($1, $2)`, [req.data.username, req.data.password], (err) => {
+    pool.query(`insert into users (username, password) values ($1, $2)`, [req.body.username, req.body.password], (err) => {
         if (err) throw err;
     })
 }

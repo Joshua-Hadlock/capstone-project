@@ -7,9 +7,10 @@ import React, { useState } from "react";
 
 // import pages
 import Testing from './pages/test';
-import About from './pages/About';
+import TitlePage from './pages/titlePage';
 import Home from './pages/home';
 import PageNotFound from './pages/PageNotFound'
+import About from './pages/About'
 
 
 
