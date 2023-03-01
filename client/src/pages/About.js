@@ -29,7 +29,7 @@ export default function TitlePage() {
             <div className="header">
                 <div className="headerLeft">
                     <ul>
-                        <li>Help</li>
+                        <li><a href="/help">Help</a></li>
                         <li><a href="/test">Sign Up</a></li>
                     </ul>
                 </div>
