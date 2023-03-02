@@ -36,12 +36,33 @@ body {
 }
 .body .header .headerLeft ul li {
   display: inline;
-  padding: 0px 15px;
   color: white;
-  transition: 0.5s;
+  background-image: linear-gradient(to right, #FDBC58, #FDBC58 50%, #ffffff 50%);
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  padding: 5px 15px;
+  position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+.body .header .headerLeft ul li:before {
+  content: "";
+  background: #FDBC58;
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  transition: all 0.3s ease-in-out;
 }
 .body .header .headerLeft ul li:hover {
-  font-size: 10px;
+  background-position: 0;
+}
+.body .header .headerLeft ul li:hover::before {
+  width: 100%;
 }
 .body .header .headerMiddle {
   width: 33.33%;
@@ -69,12 +90,33 @@ body {
 }
 .body .header .headerRight ul li {
   display: inline;
-  padding: 0px 15px;
   color: white;
-  transition: 0.5s;
+  background-image: linear-gradient(to right, #FDBC58, #FDBC58 50%, #ffffff 50%);
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  padding: 5px 15px;
+  position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+.body .header .headerRight ul li:before {
+  content: "";
+  background: #FDBC58;
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  transition: all 0.3s ease-in-out;
 }
 .body .header .headerRight ul li:hover {
-  font-size: 10px;
+  background-position: 0;
+}
+.body .header .headerRight ul li:hover::before {
+  width: 100%;
 }
 .body .greeting {
   width: 100%;
@@ -334,6 +376,16 @@ body {
   height: 100%;
   background-color: #FDBC58;
 }
+.body .helpGreeting .aside h1 {
+  text-align: center;
+  background-color: grey;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+}
+.body .helpGreeting .aside #buttonColor {
+  background-color: #FDBC58;
+}
 .body .helpGreeting .helpContent {
   width: 80%;
   height: 100vh;
@@ -344,6 +396,7 @@ body {
   background-image: url(../../images/lake.webp);
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
 }
 .body .helpGreeting .helpContent .helpImage .helpImageBlackout {
   width: 100%;
@@ -372,6 +425,21 @@ body {
   background-image: url(../../images/helpIcon1.png);
   background-size: cover;
   margin: 0 auto;
+  text-align: center;
+  transition: 0.5s;
+  border-radius: 10px;
+}
+.body .helpGreeting .helpContent .icons .helpChat h5 {
+  position: relative;
+  bottom: 25px;
+  width: 300px;
+  right: 100px;
+  font-size: 15px;
+  font-family: "Raleway", sans-serif;
+  font-weight: bolder;
+}
+.body .helpGreeting .helpContent .icons .helpChat:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 .body .helpGreeting .helpContent .icons .flag {
   width: 100px;
@@ -379,6 +447,19 @@ body {
   background-image: url(../../images/flag.png);
   background-size: cover;
   margin: 0 auto;
+  text-align: center;
+  transition: 0.5s;
+  border-radius: 10px;
+}
+.body .helpGreeting .helpContent .icons .flag h5 {
+  position: relative;
+  bottom: 25px;
+  font-size: 15px;
+  font-family: "Raleway", sans-serif;
+  font-weight: bolder;
+}
+.body .helpGreeting .helpContent .icons .flag:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 .body .helpGreeting .helpContent .icons .email {
   width: 100px;
@@ -386,6 +467,20 @@ body {
   background-image: url(../../images/email.png);
   background-size: cover;
   margin: 0 auto;
+  transition: 0.5s;
+  border-radius: 10px;
+}
+.body .helpGreeting .helpContent .icons .email h5 {
+  position: relative;
+  bottom: 25px;
+  width: 300px;
+  left: 15px;
+  font-size: 15px;
+  font-family: "Raleway", sans-serif;
+  font-weight: bolder;
+}
+.body .helpGreeting .helpContent .icons .email:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 .body .helpGreeting .helpContent .icons .start {
   width: 100px;
@@ -393,6 +488,163 @@ body {
   background-image: url(../../images/start.png);
   background-size: cover;
   margin: 0 auto;
+  text-align: center;
+  transition: 0.5s;
+  border-radius: 10px;
+}
+.body .helpGreeting .helpContent .icons .start h5 {
+  position: relative;
+  bottom: 25px;
+  width: 300px;
+  height: 10px;
+  font-size: 15px;
+  right: 100px;
+  font-family: "Raleway", sans-serif;
+  font-weight: bolder;
+}
+.body .helpGreeting .helpContent .icons .start:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.body .helpGreeting .helpContent .icons .shield {
+  width: 100px;
+  height: 100px;
+  background-image: url(../../images/shield.png);
+  background-size: cover;
+  margin: 0 auto;
+  transition: 0.5s;
+  border-radius: 10px;
+}
+.body .helpGreeting .helpContent .icons .shield h5 {
+  position: relative;
+  bottom: 25px;
+  width: 300px;
+  right: 15px;
+  font-size: 15px;
+  font-family: "Raleway", sans-serif;
+  font-weight: bolder;
+}
+.body .helpGreeting .helpContent .icons .shield:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.body .helpGreeting .helpContent .icons .contact {
+  width: 100px;
+  height: 100px;
+  background-image: url(../../images/contact.png);
+  background-size: cover;
+  margin: 0 auto;
+  text-align: center;
+  transition: 0.5s;
+  border-radius: 10px;
+}
+.body .helpGreeting .helpContent .icons .contact h5 {
+  position: relative;
+  bottom: 25px;
+  width: 300px;
+  height: 10px;
+  font-size: 15px;
+  right: 100px;
+  font-family: "Raleway", sans-serif;
+  font-weight: bolder;
+}
+.body .helpGreeting .helpContent .icons .contact:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.body .helpGreeting .helpContent .icons .locate {
+  width: 100px;
+  height: 100px;
+  background-image: url(../../images/locate.png);
+  background-size: cover;
+  margin: 0 auto;
+  text-align: center;
+  transition: 0.5s;
+  border-radius: 10px;
+}
+.body .helpGreeting .helpContent .icons .locate h5 {
+  position: relative;
+  bottom: 25px;
+  width: 300px;
+  height: 10px;
+  font-size: 15px;
+  right: 100px;
+  font-family: "Raleway", sans-serif;
+  font-weight: bolder;
+}
+.body .helpGreeting .helpContent .icons .locate:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.body .helpGreeting .helpContent .icons .merch {
+  width: 100px;
+  height: 100px;
+  background-image: url(../../images/merch.png);
+  background-size: cover;
+  margin: 0 auto;
+  text-align: center;
+  transition: 0.5s;
+  border-radius: 10px;
+}
+.body .helpGreeting .helpContent .icons .merch h5 {
+  position: relative;
+  bottom: 25px;
+  width: 300px;
+  height: 10px;
+  font-size: 15px;
+  right: 100px;
+  font-family: "Raleway", sans-serif;
+  font-weight: bolder;
+}
+.body .helpGreeting .helpContent .icons .merch:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.body .helpGreeting .helpContent .icons .question {
+  width: 100px;
+  height: 100px;
+  background-image: url(../../images/question.png);
+  background-size: cover;
+  margin: 0 auto;
+  text-align: center;
+  transition: 0.5s;
+  border-radius: 10px;
+}
+.body .helpGreeting .helpContent .icons .question h5 {
+  position: relative;
+  bottom: 25px;
+  width: 300px;
+  height: 10px;
+  font-size: 15px;
+  right: 100px;
+  font-family: "Raleway", sans-serif;
+  font-weight: bolder;
+}
+.body .helpGreeting .helpContent .icons .question:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.body .helpGreeting .helpContent .icons .donate {
+  width: 100px;
+  height: 100px;
+  background-image: url(../../images/donate.png);
+  background-size: cover;
+  margin: 0 auto;
+  text-align: center;
+  transition: 0.5s;
+  border-radius: 10px;
+}
+.body .helpGreeting .helpContent .icons .donate h5 {
+  position: relative;
+  bottom: 25px;
+  width: 300px;
+  height: 10px;
+  font-size: 15px;
+  right: 100px;
+  font-family: "Raleway", sans-serif;
+  font-weight: bolder;
+}
+.body .helpGreeting .helpContent .icons .donate:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.body .footer {
+  width: 100%;
+  height: 300px;
+  background-color: black;
 }
 
 @keyframes myAnim {
