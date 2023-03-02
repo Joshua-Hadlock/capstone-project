@@ -1,6 +1,6 @@
 const Pool = require('pg').Pool;
 let dbURL = {
-    connectionString: process.env.DATABASE_URL  || 'postgres://postgres:postgres@localhost:5432/postgres'
+    connectionString: process.env.DATABASE_URL  || 'postgres://postgres:Postgres@localhost:5432/postgres'
 }   
 
 const pool = new Pool(dbURL);
@@ -39,7 +39,7 @@ exports.getLoginUser = async (req, res) => {
 }
 
 exports.register = async (req, res) => {
-    pool.query(`insert into users (username, password) values ($1, $2)`, [req.body.username, req.body.password], (err) => {
+    pool.query(`insert into users (username, password, email, phone, address) values ($1, $2, $3, $4, $5)`, [req.body.username, req.body.password, req.body.email, req.body.phone, req.body.address], (err) => {
         if (err) throw err;
     })
 }
@@ -62,9 +62,18 @@ exports.addStudentClass = async (req, res) => {
 }
 
 exports.getAllYourClasses = async (req, res) => {
-    console.log('running')
     pool.query(`select title from courses where id in (select courses_id from user_course where users_id = $1)`, [res.locals.user.id], (err, results) => {
         if (err) throw err;
         res.status(200).json(results.rows);
+    })
+}
+
+exports.createClass = async (req, res) => {
+    const data = req.body;
+    pool.query(`insert into days_time (courses_id, schedule, classroom_number) values ($1, $2, $3)`, [data.id, data.schedule, data.classroom_number], (err) => {
+        if (err) throw err;
+    })
+    pool.query(`insert into courses (id, title, description, schedule, classroom_number, maximum_capacity, credit_hours, tuition_cost) values ($1, $2, $3, $4, $5, $6, $7, $8)`, [data.id, data.title, data.description, data.schedule, data.classroom_number, data.maximum_capacity, data.credit_hours, data.tution_cost], (err) => {
+        if (err) throw err;
     })
 }

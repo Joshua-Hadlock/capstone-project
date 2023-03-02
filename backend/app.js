@@ -11,6 +11,10 @@ const { expressjwt } = require('express-jwt');
 const logger = require('./config/logger.js')
 const morgan = require('morgan')
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
+
+// const userFunctionality = require('./router/userFunctionality')
+
+//----------------------------------------- END OF ROUTES---------------------------------------------------
 const app = express()
 const db = require('./db/index.js')
 
@@ -51,6 +55,11 @@ app.use(passport.initialize())
 app.use(passport.session())
 require("./auth/passportConfig")(passport)
 
+// app.use('/', userFunctionality);
+
+
+
+
 function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         res.locals.user = req.user;
@@ -83,7 +92,7 @@ app.get('/', (req, res) => {
     logger.debug('in home page')
     res.send('hello')
 })
-app.get('/getAllUsers', checkAuthenticated, db.getAllUsers)
+app.get('/getAllUsers', checkAuthenticated, checkAdmin, db.getAllUsers)
 
 app.post('/login', passport.authenticate('local',{ failureMessage: 'not good',failureRedirect: '/notWorking' }), (req, res) => {
     res.send('Authorized')
@@ -117,6 +126,11 @@ app.get('/allYourClasses', checkAuthenticated, db.getAllYourClasses);
 
 app.get('/admin', checkAuthenticated, checkAdmin, (req, res) => {
     res.send('hello there')
+})
+
+app.post('/createNewClass', checkAuthenticated, checkAdmin, captureData, db.createClass, (req, res) => {
+    logger.log('I ran')
+    res.send('class created')
 })
 
 app.get('*', function(req, res) {
