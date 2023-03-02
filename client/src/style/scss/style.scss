@@ -37,12 +37,40 @@ body {
             }
             ul li {
                 display:inline;
-                padding:0px 15px;
                 color:white;
-                transition:.5s;
+                background-image: linear-gradient(
+                    to right,
+                    #FDBC58,
+                    #FDBC58 50%,
+                    #ffffff 50%
+                  );
+                  background-size: 200% 100%;
+                  background-position: -100%;
+                  display: inline-block;
+                  padding: 5px 15px;
+                  position: relative;
+                  -webkit-background-clip: text;
+                  -webkit-text-fill-color: transparent;
+                  transition: all 0.3s ease-in-out;
+
+            }
+            ul li:before {
+                content: '';
+                background: #FDBC58;
+                display: block;
+                position: absolute;
+                bottom: -3px;
+                left: 0;
+                width: 0;
+                height: 3px;
+                transition: all 0.3s ease-in-out;
             }
             ul li:hover {
-                font-size:10px;
+                // font-size:10px;
+                background-position: 0;
+            }
+            ul li:hover::before{
+                width: 100%;
             }
         }
         .headerMiddle {
@@ -71,12 +99,40 @@ body {
             }
             ul li {
                 display:inline;
-                padding:0px 15px;
                 color:white;
-                transition:.5s;
+                background-image: linear-gradient(
+                    to right,
+                    #FDBC58,
+                    #FDBC58 50%,
+                    #ffffff 50%
+                  );
+                  background-size: 200% 100%;
+                  background-position: -100%;
+                  display: inline-block;
+                  padding: 5px 15px;
+                  position: relative;
+                  -webkit-background-clip: text;
+                  -webkit-text-fill-color: transparent;
+                  transition: all 0.3s ease-in-out;
+
+            }
+            ul li:before {
+                content: '';
+                background: #FDBC58;
+                display: block;
+                position: absolute;
+                bottom: -3px;
+                left: 0;
+                width: 0;
+                height: 3px;
+                transition: all 0.3s ease-in-out;
             }
             ul li:hover {
-                font-size:10px;
+                // font-size:10px;
+                background-position: 0;
+            }
+            ul li:hover::before{
+                width: 100%;
             }
         }
     }
@@ -346,6 +402,16 @@ body {
             width:20%;
             height:100%;
             background-color:$primary-color;
+            h1 {
+                text-align:center;
+                background-color:grey;
+                padding-top:10px;
+                padding-bottom:10px;
+                color:white;
+            }
+            #buttonColor {
+                background-color:$primary-color;
+            }
         }
         .helpContent {
             width:80%;
@@ -356,6 +422,7 @@ body {
                 background-image: url(../../images/lake.webp);
                 background-size:cover;
                 background-position:center;
+                background-attachment:fixed;
                 .helpImageBlackout {
                     width:100%;
                     height:200px;
@@ -385,6 +452,21 @@ body {
                     background-image: url(../../images/helpIcon1.png);
                     background-size:cover;
                     margin:0 auto;
+                    text-align:center;
+                    transition:.5s;
+                    border-radius:10px;
+                    h5 {
+                        position:relative;
+                        bottom:25px;
+                        width:300px;
+                        right:100px;
+                        font-size:15px;
+                        font-family:$secondary-font;
+                        font-weight:bolder;
+                    }
+                }
+                .helpChat:hover {
+                    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
                 }
                 .flag {
                     width:100px;
@@ -392,6 +474,19 @@ body {
                     background-image: url(../../images/flag.png);
                     background-size:cover;
                     margin:0 auto;
+                    text-align:center;
+                    transition:.5s;
+                    border-radius:10px;
+                    h5 {
+                        position:relative;
+                        bottom:25px;
+                        font-size:15px;
+                        font-family:$secondary-font;
+                        font-weight:bolder;
+                    }
+                }
+                .flag:hover {
+                    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
                 }
                 .email {
                     width:100px;
@@ -399,6 +494,20 @@ body {
                     background-image: url(../../images/email.png);
                     background-size:cover;
                     margin:0 auto;
+                    transition:.5s;
+                    border-radius:10px;
+                    h5 {
+                        position:relative;
+                        bottom:25px;
+                        width:300px;
+                        left:15px;
+                        font-size:15px;
+                        font-family:$secondary-font;
+                        font-weight:bolder;
+                    }
+                }
+                .email:hover {
+                    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
                 }
                 .start {
                     width:100px;
@@ -406,10 +515,167 @@ body {
                     background-image: url(../../images/start.png);
                     background-size:cover;
                     margin:0 auto;
+                    text-align:center;
+                    transition:.5s;
+                    border-radius:10px;
+                    h5 {
+                        position:relative;
+                        bottom:25px;
+                        width:300px;
+                        height:10px;
+                        font-size:15px;
+                        right:100px;
+                        font-family:$secondary-font;
+                        font-weight:bolder;
+                    }
+                }
+                .start:hover {
+                    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+                }
+                .shield {
+                    width:100px;
+                    height:100px;
+                    background-image: url(../../images/shield.png);
+                    background-size:cover;
+                    margin:0 auto;
+                    transition:.5s;
+                    border-radius:10px;
+                    h5 {
+                        position:relative;
+                        bottom:25px;
+                        width:300px;
+                        right:15px;
+                        font-size:15px;
+                        font-family:$secondary-font;
+                        font-weight:bolder;
+                    }
+                }
+                .shield:hover {
+                    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+                }
+                .contact {
+                    width:100px;
+                    height:100px;
+                    background-image: url(../../images/contact.png);
+                    background-size:cover;
+                    margin:0 auto;
+                    text-align:center;
+                    transition:.5s;
+                    border-radius:10px;
+                    h5 {
+                        position:relative;
+                        bottom:25px;
+                        width:300px;
+                        height:10px;
+                        font-size:15px;
+                        right:100px;
+                        font-family:$secondary-font;
+                        font-weight:bolder;
+                    }
+                }
+                .contact:hover {
+                    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+                }
+                .locate {
+                    width:100px;
+                    height:100px;
+                    background-image: url(../../images/locate.png);
+                    background-size:cover;
+                    margin:0 auto;
+                    text-align:center;
+                    transition:.5s;
+                    border-radius:10px;
+                    h5 {
+                        position:relative;
+                        bottom:25px;
+                        width:300px;
+                        height:10px;
+                        font-size:15px;
+                        right:100px;
+                        font-family:$secondary-font;
+                        font-weight:bolder;
+                    }
+                }
+                .locate:hover {
+                    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+                }
+                .merch {
+                    width:100px;
+                    height:100px;
+                    background-image: url(../../images/merch.png);
+                    background-size:cover;
+                    margin:0 auto;
+                    text-align:center;
+                    transition:.5s;
+                    border-radius:10px;
+                    h5 {
+                        position:relative;
+                        bottom:25px;
+                        width:300px;
+                        height:10px;
+                        font-size:15px;
+                        right:100px;
+                        font-family:$secondary-font;
+                        font-weight:bolder;
+                    }
+                }
+                .merch:hover {
+                    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+                }
+                .question {
+                    width:100px;
+                    height:100px;
+                    background-image: url(../../images/question.png);
+                    background-size:cover;
+                    margin:0 auto;
+                    text-align:center;
+                    transition:.5s;
+                    border-radius:10px;
+                    h5 {
+                        position:relative;
+                        bottom:25px;
+                        width:300px;
+                        height:10px;
+                        font-size:15px;
+                        right:100px;
+                        font-family:$secondary-font;
+                        font-weight:bolder;
+                    }
+                }
+                .question:hover {
+                    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+                }
+                .donate {
+                    width:100px;
+                    height:100px;
+                    background-image: url(../../images/donate.png);
+                    background-size:cover;
+                    margin:0 auto;
+                    text-align:center;
+                    transition:.5s;
+                    border-radius:10px;
+                    h5 {
+                        position:relative;
+                        bottom:25px;
+                        width:300px;
+                        height:10px;
+                        font-size:15px;
+                        right:100px;
+                        font-family:$secondary-font;
+                        font-weight:bolder;
+                    }
+                }
+                .donate:hover {
+                    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
                 }
             }
 
         }
+    }
+    .footer {
+        width:100%;
+        height:300px;
+        background-color:black;
     }
 }
 // animation code
