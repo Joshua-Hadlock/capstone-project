@@ -16,7 +16,6 @@ export default function Testing() {
   const [success, setSuccess] = useState(null);
   const [classId, setClassId] = useState(null);
   const [classes, setClasses] = useState(null);
-  const [allClasses, setAllClasses] = useState(null);
   const [newClassId, setNewClassId] = useState(null);
   const [newClassTitle, setNewClassTitle] = useState(null);
   const [newClassDescription, setNewClassDescription] = useState(null);
@@ -25,6 +24,7 @@ export default function Testing() {
   const [newClassCapacity, setNewClassCapacity] = useState(null);
   const [newClassHours, setNewClassHours] = useState(null);
   const [newClassCost, setNewClassCost] = useState(null);
+  const [allClasses, setAllClasses] = useState(null);
 
   const formatPhoneNumber = (phoneNumberString) => {
     const cleaned = ('' + phoneNumberString).replace(/\D/g, '');
@@ -50,71 +50,7 @@ export default function Testing() {
       url: "/register",
     }).then((res) => console.log(res));
   };
-  const login = () => {
-    Axios({
-      method: "POST",
-      data: {
-        username: loginUsername,
-        password: loginPassword
-      },
-      withCredentials: true,
-      url: "/login",
-    }).then((res) => setLogins(res.data));
-  };
-  const getLoginUser = () => {
-    Axios({
-      method: "GET",
-      withCredentials: true,
-      url: "/getLoginUser",
-    }).then((res) => {
-      if(res.data.username)
-        setData(res.data)
-      else
-        setData(null); 
-      console.log(res.data);
-    });
-  }
-  const getAllUsers = () => {
-    Axios({
-      method: "GET",
-      withCredentials: true,
-      url: "/getAllUsers",
-    }).then((res) => {
-      console.log(res.data);
-      setUserList(res.data);
-    });
-  }
-  const logout = () => {
-    Axios({
-      method: "GET",
-      withCredentials: true,
-      url: "/logout",
-    }).then((res) => {
-      console.log(res.data);
-      setMessage(res.data);
-    });
-  }
-  const addStudentClass = () => {
-    Axios({
-      method: "POST",
-      data: {
-        selectedClass: classId,
-      },
-      withCredentials: true,
-      url: "addClass",
-    }).then((res) => {
-      setSuccess(res.data);
-    })
-  }
-  const getYourClasses = () => {
-    Axios({
-      method: "GET",
-      withCredentials: true,
-      url: "/allYourClasses",
-    }).then((res) => {
-      setClasses(res.data)
-    })
-  }
+
   const createNewClass = () => {
     Axios({
       method: "POST",
@@ -144,120 +80,126 @@ export default function Testing() {
 }
 
   return (
-    <div className="App">
-      <div>
-        <h1>Register</h1>
-        <input
-          placeholder="username"
-          onChange={(e) => setRegisterUsername(e.target.value)}
-        />
-        <input
-          placeholder="password"
-          onChange={(e) => setRegisterPassword(e.target.value)}
-        />
-        <input
-          placeholder="Email"
-          onChange={(e) => setRegisterEmail(e.target.value)}
-        />
-        <input
-          placeholder="Phone"
-          onChange={(e) => setRegisterPhone(formatPhoneNumber(e.target.value) )}
-        />
-        <input
-          placeholder="Address"
-          onChange={(e) => setRegisterAddress(e.target.value)}
-        />
-        <button onClick={register}>Submit</button>
-      </div>
-      <div>
-        {registerPhone || 'must put a valid phone number'}
-      </div>
+    <div className="body2">
+      <div class="blackoutBody">
 
-      <div>
-        <h1>Login</h1>
-        <h2>{logins}</h2>
-        <input
-          placeholder="username"
-          onChange={(e) => setLoginUsername(e.target.value)}
-        />
-        <input
-          placeholder="password"
-          onChange={(e) => setLoginPassword(e.target.value)}
-        />
-        <button onClick={login}>Submit</button>
-      </div>
+            <div className="header">
+                <div className="headerLeft">
+                    <ul>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/help">Help</a></li>
+                    </ul>
+                </div>
+                <div className="headerMiddle">
+                    <div className="logo"></div>
+                </div>
+                <div className="headerRight">
+                    <ul>
+                        <li><a href="http://localhost:3001/">Trivia</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/login">Sign In</a></li>
+                    </ul> 
+                </div>
+            </div>
+            {/* Header */}
+        <div class="signUpContent">
 
-      <div>
-        <h1>Get Login User</h1>
-        <button onClick={getLoginUser}>Submit</button>
-        {data ? <h1>Welcome Back {data.username}</h1> : null}
-      </div>
-      <div>
-        <h1>Get All User</h1>
-        <button onClick={getAllUsers}>Submit</button>
-        {userList ? <h1>User List <ul>{userList.map((item)=><li key={item._id}>{item.username}</li>)}</ul></h1> : null}
-      </div>
-      <div>
-        <h1>Logout</h1>
-        <button onClick={logout}>Submit</button>
-        {message ? <h1>{message}</h1> : null}
-      </div>
-      <div>
-        <h1>Add Class</h1>
-        <h2>{success}</h2>
-        <input
-          placeholder="classId"
-          onChange={(e) => setClassId(e.target.value)}
-        />
-        <button onClick={addStudentClass}>Submit</button>
-      </div>
-      <div>
-        <h1>Get your classes</h1>
-        <button onClick={getYourClasses}>Submit</button>
-        {classes ? <h1>Your Classes <ul>{classes.map((item)=><li key={item._id}>{item.title}</li>)}</ul></h1> : null}
-      </div>
-      <div>
-        <h1>Create a Class</h1>
-        <input
-          placeholder="newClassId"
-          onChange={(e) => setNewClassId(e.target.value)}
-        />
-        <input
-          placeholder="newClassTitle"
-          onChange={(e) => setNewClassTitle(e.target.value)}
-        />
-        <input
-          placeholder="newClassDescription"
-          onChange={(e) => setNewClassDescription(e.target.value)}
-        />
-        <input
-          placeholder="newClassSchedule"
-          onChange={(e) => setNewClassSchedule(e.target.value)}
-        />
-        <input
-          placeholder="newClass_number"
-          onChange={(e) => setNewClass_number(e.target.value)}
-        />
-        <input
-          placeholder="newClassCapacity"
-          onChange={(e) => setNewClassCapacity(e.target.value)}
-        />
-        <input
-          placeholder="newClassHours"
-          onChange={(e) => setNewClassHours(e.target.value)}
-        />
-        <input
-          placeholder="newClassCost"
-          onChange={(e) => setNewClassCost(e.target.value)}
-        />
+          <div class="register">
+            <h1>Register</h1>
+            <input
+              placeholder="Username"
+              onChange={(e) => setRegisterUsername(e.target.value)}
+            />
+            <input
+              placeholder="Password"
+              onChange={(e) => setRegisterPassword(e.target.value)}
+            />
+            <input
+              placeholder="Email"
+              onChange={(e) => setRegisterEmail(e.target.value)}
+            />
+            <input
+              placeholder="Phone"
+              onChange={(e) => setRegisterPhone(formatPhoneNumber(e.target.value) )}
+            />
+            <input
+              placeholder="Address"
+              onChange={(e) => setRegisterAddress(e.target.value)}
+            />
+            <button onClick={register}>Submit</button>
+          </div>
+          <div>
+            {registerPhone || 'must put a valid phone number'}
+          </div>
+          <div class="terms">
+            <button>Read Terms and Conditions</button>
+          </div>
+          <div class="readTerms">
+            <input class="checkbox" type="checkbox"/>
+            <p>I have read and accept these terms and conditions</p> 
+          </div>
+          
+          <p>Already have an account ? log in <a href="/login">here</a></p>
+          {/* modal */}
+              <button type="button" id="launchButton" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Create a Class
+              </button>
 
-        <button onClick={createNewClass}>Submit</button>
-      </div>
 
-      <div>
-        <h1>Get All Classes</h1>
-        <button onClick={getAllClasses}>Submit</button>
-        {allClasses ? <h1>Your Classes <ul>{allClasses.map((item)=><li key={item._id}>{item.title}</li>)}</ul></h1> : null}
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                     
+                    <div class="createClass">
+                      <h1>Create a Class</h1>
+                      <input
+                        placeholder="New Class Id"
+                        onChange={(e) => setNewClassId(e.target.value)}
+                      />
+                      <input
+                        placeholder="New Class Title"
+                        onChange={(e) => setNewClassTitle(e.target.value)}
+                      />
+                      <input
+                        placeholder="New Class Description"
+                        onChange={(e) => setNewClassDescription(e.target.value)}
+                      />
+                      <input
+                        placeholder="New Class Schedule"
+                        onChange={(e) => setNewClassSchedule(e.target.value)}
+                      />
+                      <input
+                        placeholder="New Class Number"
+                        onChange={(e) => setNewClass_number(e.target.value)}
+                      />
+                      <input
+                        placeholder="New Class Capacity"
+                        onChange={(e) => setNewClassCapacity(e.target.value)}
+                      />
+                      <input
+                        placeholder="New Class Hours"
+                        onChange={(e) => setNewClassHours(e.target.value)}
+                      />
+                      <input
+                        placeholder="New Class Cost"
+                        onChange={(e) => setNewClassCost(e.target.value)}
+                      />
+
+                      <button data-bs-dismiss="modal" onClick={createNewClass}>Submit</button>
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
       </div>
     </div>
   );

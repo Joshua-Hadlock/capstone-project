@@ -1,7 +1,7 @@
 const Pool = require('pg').Pool;
 require('dotenv').config()
 let dbURL = {
-    connectionString: process.env.DATABASE_URL  || 'postgres://postgres:Postgres@localhost:5432/postgres'
+    connectionString: process.env.DATABASE_URL  || 'postgres://postgres:postgres@localhost:5432/postgres'
 }   
 
 const pool = new Pool(dbURL);

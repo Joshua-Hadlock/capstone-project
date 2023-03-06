@@ -15,6 +15,7 @@ export default function Home() {
                     <ul>
                         <li><a href="http://localhost:3001/">Trivia</a></li>
                         <li><a href="/about">About</a></li>
+                        <li><a href="/Login">Sign In</a></li>
                     </ul> 
                 </div>
             </div>

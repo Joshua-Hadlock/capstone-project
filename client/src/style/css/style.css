@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: white;
+  background-color: black;
 }
 
 .body {
@@ -264,7 +264,7 @@ body {
   background-size: cover;
   margin: 0 auto;
   position: relative;
-  top: 250px;
+  top: 225px;
   animation: myAnim 4s ease 0s infinite normal forwards;
 }
 .body .aboutDescription {
@@ -312,58 +312,6 @@ body {
   left: 200px;
   top: -100px;
   z-index: 10;
-}
-.body .ArtWork {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url(../../images/mainImage.jpg);
-  background-size: cover;
-  position: relative;
-  top: 30px;
-}
-.body .ArtWork div h1 {
-  width: 50%;
-  padding: 30px;
-  font-family: "Roboto", sans-serif;
-  z-index: 3;
-  color: black;
-}
-.body .ArtWork .filler {
-  width: 100px;
-  height: 100px;
-}
-.body .ArtWork:before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100px;
-  z-index: 10000;
-}
-.body .ArtWork:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7333333333);
-  z-index: 10000;
-  mix-blend-mode: color;
-}
-.body .ArtWork img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  pointer-events: none;
 }
 .body .helpGreeting {
   display: flex;
@@ -645,6 +593,357 @@ body {
   width: 100%;
   height: 300px;
   background-color: black;
+}
+.body .loginContent {
+  width: 50%;
+  height: 94%;
+  background-color: red;
+}
+
+.body2 {
+  background-image: url(../../images/nature.jpeg);
+  background-size: cover;
+  background-attachment: fixed;
+  height: 1000px;
+}
+.body2 .header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 20000;
+}
+.body2 .header a {
+  color: white;
+  text-decoration: none;
+}
+.body2 .header .headerLeft {
+  width: 33.33%;
+  height: 100%;
+  background-color: black;
+  text-transform: uppercase;
+}
+.body2 .header .headerLeft ul {
+  margin-top: 35px;
+}
+.body2 .header .headerLeft ul li {
+  display: inline;
+  color: white;
+  background-image: linear-gradient(to right, #FDBC58, #FDBC58 50%, #ffffff 50%);
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  padding: 5px 15px;
+  position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+.body2 .header .headerLeft ul li:before {
+  content: "";
+  background: #FDBC58;
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  transition: all 0.3s ease-in-out;
+}
+.body2 .header .headerLeft ul li:hover {
+  background-position: 0;
+}
+.body2 .header .headerLeft ul li:hover::before {
+  width: 100%;
+}
+.body2 .header .headerMiddle {
+  width: 33.33%;
+  height: 100%;
+  background-color: black;
+}
+.body2 .header .headerMiddle .logo {
+  width: 80px;
+  height: 80px;
+  background-image: url(../../images/mcqLogo.png);
+  background-size: cover;
+  margin: 0 auto;
+  position: relative;
+  top: 8px;
+}
+.body2 .header .headerRight {
+  width: 33.33%;
+  height: 100%;
+  background-color: black;
+  display: inline;
+  text-transform: uppercase;
+}
+.body2 .header .headerRight ul {
+  margin-top: 35px;
+}
+.body2 .header .headerRight ul li {
+  display: inline;
+  color: white;
+  background-image: linear-gradient(to right, #FDBC58, #FDBC58 50%, #ffffff 50%);
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  padding: 5px 15px;
+  position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+.body2 .header .headerRight ul li:before {
+  content: "";
+  background: #FDBC58;
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  transition: all 0.3s ease-in-out;
+}
+.body2 .header .headerRight ul li:hover {
+  background-position: 0;
+}
+.body2 .header .headerRight ul li:hover::before {
+  width: 100%;
+}
+.body2 .blackoutBody {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.487);
+}
+.body2 .signUpContent {
+  width: 700px;
+  height: 500px;
+  background-color: white;
+  border-radius: 10px;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  top: 200px;
+}
+.body2 .signUpContent .terms button {
+  background-color: #FDBC58;
+  border: none;
+  border-radius: 5px;
+  width: 250px;
+  height: 40px;
+  margin-top: 20px;
+}
+.body2 .signUpContent .readTerms {
+  position: relative;
+  top: 20px;
+  width: 100%;
+  height: 50px;
+  margin: 0 auto;
+}
+.body2 .signUpContent .readTerms .checkbox {
+  margin-right: 400px;
+  position: relative;
+  top: 14px;
+}
+.body2 .signUpContent .readTerms p {
+  margin-top: -60px;
+}
+.body2 .signUpContent .register {
+  width: 90%;
+  height: 120px;
+  margin: 0 auto;
+  position: relative;
+  top: 20px;
+}
+.body2 .signUpContent .register input {
+  width: 100px;
+}
+.body2 .signUpContent .register button {
+  background-color: #FDBC58;
+  height: 30px;
+  border: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  transition: 0.5s;
+}
+.body2 .signUpContent .register button:hover {
+  background-color: #e2a03b;
+}
+.body2 .createClass {
+  width: 90%;
+  height: 90%;
+  margin: 0 auto;
+}
+.body2 .createClass input {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.body2 .createClass button {
+  margin-top: 40px;
+  width: 150px;
+  height: 40px;
+  color: black;
+  background-color: #FDBC58;
+  border: none;
+  border-radius: 5px;
+  transition: 0.5s;
+}
+.body2 .createClass button:hover {
+  background-color: #e2a03b;
+}
+.body2 .loginUser {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+.body2 .loginUser h1 {
+  margin: 0 auto;
+  position: relative;
+  left: 80px;
+  font-size: 20px;
+}
+.body2 .loginUser button {
+  background-color: #FDBC58;
+  color: black;
+  width: 100px;
+  height: 20px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 6px;
+  margin-right: 250px;
+  font-size: 10px;
+  transition: 0.5s;
+}
+.body2 .loginUser button:hover {
+  background-color: #e2a03b;
+}
+.body2 .getUser {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+.body2 .getUser h1 {
+  margin: 0 auto;
+  position: relative;
+  left: 90px;
+  font-size: 20px;
+}
+.body2 .getUser button {
+  background-color: #FDBC58;
+  color: black;
+  width: 100px;
+  height: 20px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 6px;
+  margin-right: 250px;
+  font-size: 10px;
+  transition: 0.5s;
+}
+.body2 .getUser button:hover {
+  background-color: #e2a03b;
+}
+.body2 .logout {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+.body2 .logout h1 {
+  margin: 0 auto;
+  position: relative;
+  left: 110px;
+  font-size: 20px;
+}
+.body2 .logout button {
+  background-color: #FDBC58;
+  color: black;
+  width: 100px;
+  height: 20px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 6px;
+  margin-right: 250px;
+  font-size: 10px;
+  transition: 0.5s;
+}
+.body2 .logout button:hover {
+  background-color: #e2a03b;
+}
+.body2 .addClass {
+  position: relative;
+  top: 20px;
+  width: 200px;
+  margin: 0 auto;
+}
+.body2 .addClass h1 {
+  font-size: 20px;
+}
+.body2 .addClass button {
+  background-color: #FDBC58;
+  color: black;
+  width: 100px;
+  height: 20px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 10px;
+  font-size: 10px;
+  transition: 0.5s;
+}
+.body2 .addClass button:hover {
+  background-color: #e2a03b;
+}
+.body2 .getClasses {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+.body2 .getClasses h1 {
+  margin: 0 auto;
+  position: relative;
+  left: 80px;
+  font-size: 20px;
+}
+.body2 .getClasses button {
+  background-color: #FDBC58;
+  color: black;
+  width: 100px;
+  height: 20px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 6px;
+  margin-right: 250px;
+  font-size: 10px;
+  transition: 0.5s;
+}
+.body2 .getClasses button:hover {
+  background-color: #e2a03b;
+}
+.body2 p {
+  position: relative;
+  top: 50px;
+}
+.body2 #launchButton {
+  margin-top: 100px;
+  background-color: black;
+  border: none;
+  width: 200px;
+  height: 50px;
+  transition: 0.5s;
+}
+.body2 #launchButton:hover {
+  background-color: rgba(0, 0, 0, 0.597);
+}
+.body2 .modal-dialog {
+  margin-top: 200px;
+}
+.body2 .modal-body {
+  height: 350px;
+}
+.body2 .modal-footer {
+  height: 50px;
 }
 
 @keyframes myAnim {

@@ -1,28 +1,6 @@
 import { useEffect, useRef } from 'react';
 
 export default function TitlePage() {
-    function parallaxEffect() {
-        let mountain = document.getElementById("Mountain");
-        let ducks = document.getElementById("Ducks");
-    
-        window.addEventListener('scroll', function() {
-          var value = window.scrollY;
-    
-          mountain.style.top = value * 0.15 + 'px';
-          ducks.style.left = value * 0.15 + 'px';
-        })
-      }
-    
-      const nightRef = useRef(null);
-    
-      useEffect(() => {
-        const isReady = nightRef.current;
-    
-        if(isReady) {
-          parallaxEffect()
-        }
-    
-      }, [nightRef.current])
 
     return (
         <div className="body">
@@ -71,14 +49,6 @@ export default function TitlePage() {
                 </div>
             </div>
             {/* artwork */}
-            <div className="ArtWork">
-                <img src="images/mountain.png" id="Mountain" ref={nightRef}></img>
-                <img src="images/adasde.png" id="Ducks"></img>
-                <div>
-                    <h1>"Any bookmark worth more than a dollar is a waste of money because you could just use the dollar" <span>- Random Person</span></h1>
-                    <div className='filler'></div>
-                </div>
-            </div>
         </div>
     )
 }
