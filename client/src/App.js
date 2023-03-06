@@ -11,6 +11,7 @@ import About from './pages/About';
 import Home from './pages/home';
 import PageNotFound from './pages/PageNotFound'
 import Help from './pages/Help'
+import Login from './pages/Login'
 
 
 
@@ -24,6 +25,7 @@ function App() {
           <Route path='/test' element={<Testing />}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/help" element={<Help />}></Route>
+          <Route path="/login" element={<Login />}></Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Router>
