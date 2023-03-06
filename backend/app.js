@@ -80,6 +80,31 @@ function checkAdmin(req, res, next) {
     
 }
 
+function checkAuthenticatedPost(req, res, next) {
+    if (req.isAuthenticated()) {
+        res.locals.user = req.user;
+        return next();
+    } else {
+        res.status(200).json([
+            {username: 'FAILURE, NOT AN ADMIN'},
+        ]);
+    }
+    
+}
+
+function checkAdminPost(req, res, next) {
+    console.log(res.locals.user)
+    if (res.locals.user.is_admin) {
+        return next();
+    } else {
+        console.log('NOT AN ADMIN')
+        res.status(200).json([
+            {username: 'FAILURE, NOT AN ADMIN'}
+        ]);
+    }
+    
+}
+
 function captureData(req, res, next) {
     console.log(req.body)
     res.locals.data = req.body
@@ -92,13 +117,13 @@ app.get('/', (req, res) => {
     logger.debug('in home page')
     res.send('hello')
 })
-app.get('/getAllUsers', checkAuthenticated, checkAdmin, db.getAllUsers)
+app.get('/getAllUsers', checkAuthenticatedPost, checkAdminPost, db.getAllUsers)
 
 app.post('/login', passport.authenticate('local',{ failureMessage: 'not good',failureRedirect: '/notWorking' }), (req, res) => {
     res.send('Authorized')
 })
 
-app.get('/getLoginUser', checkAuthenticated, db.getLoginUser)
+app.get('/getLoginUser', checkAuthenticatedPost, db.getLoginUser)
 
 app.post('/register', captureData, db.register, (req, res) => {
     res.send('Created user')
@@ -122,6 +147,10 @@ app.post('/addClass', checkAuthenticated, captureData, db.addStudentClass, (req,
     res.send('it worked!!!')
 })
 
+app.post(`/removeClass`, checkAuthenticated, captureData, db.removeStudentClass, (req, res) => {
+    res.send(`it worked!!!`)
+})
+
 app.get('/allYourClasses', checkAuthenticated, db.getAllYourClasses);
 
 app.get('/admin', checkAuthenticated, checkAdmin, (req, res) => {
@@ -132,6 +161,8 @@ app.post('/createNewClass', checkAuthenticated, checkAdmin, captureData, db.crea
     logger.log('I ran')
     res.send('class created')
 })
+
+app.get('/different')
 
 app.get('*', function(req, res) {
     res.sendFile('index.html', {root: path.join(__dirname, '../client/build/')});

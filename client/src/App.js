@@ -12,7 +12,7 @@ import Home from './pages/home';
 import PageNotFound from './pages/PageNotFound'
 import Help from './pages/Help'
 import Login from './pages/Login'
-
+import NavBar from "./components/navbar";
 
 
 

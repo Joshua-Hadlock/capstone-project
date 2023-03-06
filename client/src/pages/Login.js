@@ -119,6 +119,36 @@ export default function Login() {
 
               </div>
               </div>
+              /* <div class="loginUser">
+            <h1>Get Login User</h1>
+            <button onClick={getLoginUser}>Submit</button>
+            {data ? <h1>Welcome Back {data.username}</h1> : null}
+          </div>
+          <div class="getUser">
+            <h1>Get All User</h1>
+            <button onClick={getAllUsers}>Submit</button>
+            {userList ? <h1>User List <ul>{userList.map((item)=><li key={item._id}>{item.username}</li>)}</ul></h1> : null}
+          </div>
+          <div class="logout">
+            <h1>Logout</h1>
+            <button onClick={logout}>Submit</button>
+            {message ? <h1>{message}</h1> : null}
+          </div>
+          <div class="getClasses">
+            <h1>Get your classes</h1>
+            <button onClick={getYourClasses}>Submit</button>
+            {classes ? <h1>Your Classes <ul>{classes.map((item)=><li key={item._id}>{item.title}</li>)}</ul></h1> : null}
+          </div>
+
+          <div class="addClass">
+            <h1>Add Class</h1>
+            <h2>{success}</h2>
+            <input
+              placeholder="Class Id"
+              onChange={(e) => setClassId(e.target.value)}
+            />
+            <button onClick={addStudentClass}>Submit</button>
+          </div> */
           </div> 
     )
 }

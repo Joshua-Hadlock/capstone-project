@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Axios from "axios";
+import NavBar from "../components/navbar";
 
 export default function Testing() {
   const [registerUsername, setRegisterUsername] = useState("");
