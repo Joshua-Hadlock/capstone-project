@@ -595,9 +595,87 @@ body {
   background-color: black;
 }
 .body .loginContent {
-  width: 50%;
+  width: 100%;
   height: 94%;
-  background-color: red;
+  background-color: blue;
+  display: flex;
+  flex-direction: row;
+}
+.body .loginContent .loginForm {
+  width: 30%;
+  height: 100%;
+  background-color: white;
+}
+.body .loginContent .loginForm h1 {
+  text-align: center;
+  position: relative;
+  top: 100px;
+  right: 20px;
+  font-family: "Annie Use Your Telescope", cursive;
+  font-size: 80px;
+}
+.body .loginContent .loginForm .input1 {
+  width: 400px;
+  margin-left: 70px;
+  margin-top: 150px;
+  height: 30px;
+}
+.body .loginContent .loginForm .input2 {
+  width: 400px;
+  margin-left: 70px;
+  margin-top: 20px;
+  height: 30px;
+}
+.body .loginContent .loginForm button {
+  background-color: #FDBC58;
+  position: relative;
+  left: 100px;
+  top: 50px;
+  width: 300px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+}
+.body .loginContent .loginForm p {
+  text-align: center;
+  margin-top: 10px;
+  margin-right: 50px;
+}
+.body .loginContent .loginImage {
+  width: 70%;
+  height: 100%;
+  background-image: url(../../images/art.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.body .loginContent .loginImage .blackout {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.507);
+}
+.body .loginContent .loginImage .blackout h1 {
+  color: white;
+  text-align: center;
+  font-size: 80px;
+  position: relative;
+  top: 300px;
+  font-family: "Annie Use Your Telescope", cursive;
+}
+.body .loginContent .loginImage .blackout p {
+  color: white;
+  text-align: center;
+  position: relative;
+  top: 400px;
+}
+.body .loginContent .loginImage .blackout button {
+  background-color: #FDBC58;
+  width: 200px;
+  height: 40px;
+  position: relative;
+  left: 570px;
+  top: 400px;
+  border: none;
+  border-radius: 50px;
 }
 
 .body2 {

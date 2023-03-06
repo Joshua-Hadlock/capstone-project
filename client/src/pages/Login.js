@@ -101,22 +101,27 @@ export default function Login() {
             </div>
             {/* header */}
             <div class="loginContent">
-              <div class="loginContent">
+              <div class="loginForm">
                 <h1>Login</h1>
                 <h2>{logins}</h2>
-                <input
-                  placeholder="username"
+                <input class="input1"
+                  placeholder="Username"
                   onChange={(e) => setLoginUsername(e.target.value)}
                 />
-                <input
-                  placeholder="password"
+                <input class="input2"
+                  placeholder="Password"
                   onChange={(e) => setLoginPassword(e.target.value)}
                 />
-                <button onClick={login}>Submit</button>
-                <p>Dont have an account ? sign up <a href="/test">here</a></p>
+                <p>forgot your password click <a href="">here</a></p>
+                <a href="/dashboard"><button onClick={login}>Submit</button></a>
+                
               </div>
               <div class="loginImage">
-
+                <div class="blackout">
+                  <h1>Welcome Back !</h1>
+                  <p>Dont have an account ? sign up and see all benefits </p>
+                  <a href="/test"><button>Sign Up</button></a>
+                </div>
               </div>
               </div>
           </div> 
