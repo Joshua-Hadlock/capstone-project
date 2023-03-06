@@ -1,4 +1,5 @@
 const Pool = require('pg').Pool;
+require('dotenv').config()
 let dbURL = {
     connectionString: process.env.DATABASE_URL  || 'postgres://postgres:Postgres@localhost:5432/postgres'
 }   
@@ -55,10 +56,20 @@ exports.getAllClasses = async (req, res) => {
 }
 
 exports.addStudentClass = async (req, res) => {
-    pool.query(`insert into user_course (courses_id, users_id)
+    const currentClassCapacityQuery = await pool.query(`select count(*) from user_course where courses_id = $1`, [req.body.selectedClass])
+    const classCapacityQuery = await pool.query(`select maximum_capacity from courses where id = $1`, [req.body.selectedClass])
+    const currentClassCapacity = currentClassCapacityQuery.rows[0].count;
+    const classCapacity = classCapacityQuery.rows[0].maximum_capacity;
+    console.log(currentClassCapacity)
+    console.log(classCapacity)
+
+
+    if (currentClassCapacity < classCapacity) {
+        pool.query(`insert into user_course (courses_id, users_id)
 
     values
     ((select id from courses where id = $1), (select id from users where id = $2))`, [req.body.selectedClass, res.locals.user.id])
+    }
 }
 
 exports.getAllYourClasses = async (req, res) => {

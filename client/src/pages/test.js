@@ -16,6 +16,7 @@ export default function Testing() {
   const [success, setSuccess] = useState(null);
   const [classId, setClassId] = useState(null);
   const [classes, setClasses] = useState(null);
+  const [allClasses, setAllClasses] = useState(null);
   const [newClassId, setNewClassId] = useState(null);
   const [newClassTitle, setNewClassTitle] = useState(null);
   const [newClassDescription, setNewClassDescription] = useState(null);
@@ -132,6 +133,15 @@ export default function Testing() {
     }).then((res) => console.log(res))
   }
 
+  const getAllClasses = () => {
+    Axios({
+      method: "GET",
+      withCredentials: true,
+      url: "/getAllClasses"  
+  }).then((res) => {
+    setAllClasses(res.data)
+  })
+}
 
   return (
     <div className="App">
@@ -244,6 +254,11 @@ export default function Testing() {
         <button onClick={createNewClass}>Submit</button>
       </div>
 
+      <div>
+        <h1>Get All Classes</h1>
+        <button onClick={getAllClasses}>Submit</button>
+        {allClasses ? <h1>Your Classes <ul>{allClasses.map((item)=><li key={item._id}>{item.title}</li>)}</ul></h1> : null}
+      </div>
     </div>
   );
 }
