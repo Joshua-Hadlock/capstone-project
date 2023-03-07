@@ -4,7 +4,10 @@ import Axios from "axios";
 
 
 export default function Dashboard() {
+    const [success, setSuccess] = useState(null);
+    const [classId, setClassId] = useState(null);
     const [classes, setClasses] = useState(null);
+
     const getYourClasses = () => {
         Axios({
           method: "GET",
@@ -36,9 +39,10 @@ export default function Dashboard() {
             </div>
             <div id="courses">
                 <h1>Your Classes</h1>
-                {classes ?  <div class="getClasses">{classes.map((item)=><div key={item._id} class="class"><h1>{item.title}</h1><p>{item.description}</p></div>)}</div> : null}
+                {classes ?  <div class="getClasses">{classes.map((item)=><div key={item._id} class="class"><h1>{item.title}</h1><div class="line"></div><p>{item.description}</p></div>)}</div> : null}
             </div>
             <div id="addCourses">
+                
             </div>
             <div id="dropClass">
             </div>

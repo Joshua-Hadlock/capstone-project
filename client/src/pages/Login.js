@@ -63,18 +63,18 @@ export default function Login() {
       setMessage(res.data);
     });
   }
-  const addStudentClass = () => {
-    Axios({
-      method: "POST",
-      data: {
-        selectedClass: classId,
-      },
-      withCredentials: true,
-      url: "addClass",
-    }).then((res) => {
-      setSuccess(res.data);
-    })
-  }
+  // const addStudentClass = () => {
+  //   Axios({
+  //     method: "POST",
+  //     data: {
+  //       selectedClass: classId,
+  //     },
+  //     withCredentials: true,
+  //     url: "addClass",
+  //   }).then((res) => {
+  //     setSuccess(res.data);
+  //   })
+  // }
   // const getYourClasses = () => {
   //   Axios({
   //     method: "GET",
@@ -154,7 +154,7 @@ export default function Login() {
             {classes ? <h1>Your Classes <ul>{classes.map((item)=><li key={item._id}>{item.title}</li>)}</ul></h1> : null}
           </div> */}
 
-          <div class="addClass">
+          {/* <div class="addClass">
             <h1>Add Class</h1>
             <h2>{success}</h2>
             <input
@@ -162,7 +162,7 @@ export default function Login() {
               onChange={(e) => setClassId(e.target.value)}
             />
             <button onClick={addStudentClass}>Submit</button>
-          </div> */
+          </div>  */}
           </div> 
     )
 }
