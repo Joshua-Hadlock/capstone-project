@@ -75,15 +75,15 @@ export default function Login() {
       setSuccess(res.data);
     })
   }
-  const getYourClasses = () => {
-    Axios({
-      method: "GET",
-      withCredentials: true,
-      url: "/allYourClasses",
-    }).then((res) => {
-      setClasses(res.data)
-    })
-  }
+  // const getYourClasses = () => {
+  //   Axios({
+  //     method: "GET",
+  //     withCredentials: true,
+  //     url: "/allYourClasses",
+  //   }).then((res) => {
+  //     setClasses(res.data)
+  //   })
+  // }
 
     return(
           <div class="body">
@@ -114,7 +114,7 @@ export default function Login() {
                   placeholder="Username"
                   onChange={(e) => setLoginUsername(e.target.value)}
                 />
-                <input class="input2"
+                <input type="password" class="input2"
                   placeholder="Password"
                   onChange={(e) => setLoginPassword(e.target.value)}
                 />
@@ -147,11 +147,12 @@ export default function Login() {
             <button onClick={logout}>Submit</button>
             {message ? <h1>{message}</h1> : null}
           </div>
-          <div class="getClasses">
+          {/* Get Classes */}
+          {/* <div class="getClasses">
             <h1>Get your classes</h1>
             <button onClick={getYourClasses}>Submit</button>
             {classes ? <h1>Your Classes <ul>{classes.map((item)=><li key={item._id}>{item.title}</li>)}</ul></h1> : null}
-          </div>
+          </div> */}
 
           <div class="addClass">
             <h1>Add Class</h1>

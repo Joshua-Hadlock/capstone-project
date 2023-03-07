@@ -1,6 +1,8 @@
 import NavBar from "../components/navbar"
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
+
+
 export default function Dashboard() {
     const [classes, setClasses] = useState(null);
     const getYourClasses = () => {
@@ -33,9 +35,8 @@ export default function Dashboard() {
                 </ul>
             </div>
             <div id="courses">
-                <div class="getClasses">
-                    {classes ? <h1>Your Classes <ul>{classes.map((item)=><li key={item._id}>{item.title}</li>)}</ul></h1> : null}
-                </div>
+                <h1>Your Classes</h1>
+                {classes ?  <div class="getClasses">{classes.map((item)=><div key={item._id} class="class"><h1>{item.title}</h1><p>{item.description}</p></div>)}</div> : null}
             </div>
             <div id="addCourses">
             </div>

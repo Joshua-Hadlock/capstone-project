@@ -87,8 +87,7 @@ exports.removeStudentClass = async (req, res) => {
 }
 
 exports.getAllYourClasses = async (req, res) => {
-    console.log('IT RANNNNNNNNNNNNN')
-    pool.query(`select title from courses where id in (select courses_id from user_course where users_id = $1)`, [res.locals.user.id], (err, results) => {
+    pool.query(`select * from courses where id in (select courses_id from user_course where users_id = $1)`, [res.locals.user.id], (err, results) => {
         if (err) throw err;
         console.log(results.rows)
         res.status(200).json(results.rows);
