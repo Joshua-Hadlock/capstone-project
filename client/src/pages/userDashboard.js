@@ -4,7 +4,22 @@ import Axios from "axios";
 
 
 export default function Dashboard() {
+    const [success, setSuccess] = useState(null);
+    const [classId, setClassId] = useState(null);
     const [classes, setClasses] = useState(null);
+
+    const addStudentClass = () => {
+        Axios({
+          method: "POST",
+          data: {
+            selectedClass: classId,
+          },
+          withCredentials: true,
+          url: "addClass",
+        }).then((res) => {
+          setSuccess(res.data);
+        })
+      }
 
     const getYourClasses = () => {
         Axios({
@@ -41,27 +56,27 @@ export default function Dashboard() {
                 <div class="getClasses">
                     {/* <button onClick={getYourClasses}>Submit</button>
                     {classes ? <h1>Your Classes <ul>{classes.map((item)=><li key={item._id}>{item.title}</li>)}</ul></h1> : null} */}
+                    
                     <div class="class">
                         <h1>Random Class 1</h1>
+                        <div class="line"></div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Phasellus faucibus scelerisque eleifend donec.</p>
                     </div>
- 
-                    <div class="class">
-                        <h1>Random Class 2</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Phasellus faucibus scelerisque eleifend donec.</p>
-                    </div>
-                    <div class="class">
-                        <h1>Random Class 2</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Phasellus faucibus scelerisque eleifend donec.</p>
-                    </div>
-                    
-                    
+                  
                 </div>
                 
 
             </div>
             <div id="addCourses">
-                
+                <div class="addClass">
+                    <h1>Add Class</h1>
+                    <h2>{success}</h2>
+                    <input
+                    placeholder="Class Id"
+                    onChange={(e) => setClassId(e.target.value)}
+                    />
+                    <button onClick={addStudentClass}>Submit</button>
+                </div> 
             </div>
             <div id="dropClass">
                 

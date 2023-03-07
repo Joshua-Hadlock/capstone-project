@@ -732,7 +732,10 @@ body {
     .dashboardNav {
         width:100%;
         height:60px;
-        background-color:rgba(0, 0, 0, 0.048);
+        background-color:rgb(226, 226, 226);
+        position:sticky;
+        top:100px;
+        z-index:1000;
         ul {
             position:relative;
             top:15px;
@@ -756,7 +759,6 @@ body {
         .getClasses {
             width:100%;
             height:auto;
-            background-color:red;
             display:flex;
             flex-direction:row;
             justify-content:space-between;
@@ -775,16 +777,24 @@ body {
             width:300px;
             height:400px;
             text-align:center;
-            background-color:yellow;
+            background-color:rgba(0, 0, 0, 0.099);
             margin: 0 auto;
             border-radius:10px;
             position:relative;
             margin-top:20px;
             margin-bottom:20px;
+            .line {
+                height:2px;
+                width:60%;
+                background-color:black;
+                position:relative;
+                top:40px;
+                margin:0 auto;
+            }
             h1 {
                 font-family:Arial, Helvetica, sans-serif;
                 font-size:30px;
-                color:green;
+                color:black;
                 font-weight:lighter;
                 display:inline;
                 position:relative;
