@@ -65,7 +65,10 @@ function checkAuthenticated(req, res, next) {
         res.locals.user = req.user;
         return next();
     } else {
-        res.redirect('/')
+        // res.redirect('/')
+        res.status(200).json([
+            'FAILURE'
+        ])
     }
     
 }
@@ -172,6 +175,7 @@ app.get('/findClass', captureData, db.findClass, (req, res) => {
 })
 
 app.get('*', function(req, res) {
+    
     res.sendFile('index.html', {root: path.join(__dirname, '../client/build/')});
   });
 

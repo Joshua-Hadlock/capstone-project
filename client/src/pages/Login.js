@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 
 export default function Login() {
+  const navigate = useNavigate();
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [logins, setLogins] = useState(null);
@@ -13,6 +15,7 @@ export default function Login() {
   const [classes, setClasses] = useState(null);
 
   const login = () => {
+    setLogins('authenticating')
     Axios({
       method: "POST",
       data: {
@@ -21,7 +24,10 @@ export default function Login() {
       },
       withCredentials: true,
       url: "/login",
-    }).then((res) => setLogins(res.data));
+    }).then((res) => {
+      setLogins(res.data)
+      navigate("/dashboard")
+    });
   };
 
   const getLoginUser = () => {
@@ -113,7 +119,9 @@ export default function Login() {
                   onChange={(e) => setLoginPassword(e.target.value)}
                 />
                 <p>forgot your password click <a href="">here</a></p>
-                <a href="/dashboard"><button onClick={login}>Submit</button></a>
+                {/* <a href="/dashboard"> */}
+                  <button onClick={login}>Submit</button>
+                {/* </a> */}
                 
               </div>
               <div class="loginImage">
