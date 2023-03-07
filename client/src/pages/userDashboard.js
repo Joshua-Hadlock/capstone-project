@@ -9,6 +9,7 @@ export default function Dashboard() {
     const [classId, setClassId] = useState(null);
     const [classes, setClasses] = useState(null);
     const [username, setUsername] = useState(null);
+    const [allClasses, setAllClasses] = useState(null);
     const [data, setData] = useState(null);
     const navigate = useNavigate();
     const getYourClasses = () => {
@@ -32,21 +33,44 @@ export default function Dashboard() {
             navigate("/login")
           } else if(res.data.username) {
             setData(res.data)
-            setUsername(res.data.username)
+            setUsername(res.data)
           }else {
             setData(null); 
             navigate("/login")
           }
         });
       }
-
+        
+    const addStudentClass = () => {
+        Axios({
+          method: "POST",
+          data: {
+            selectedClass: classId,
+          },
+          withCredentials: true,
+          url: "/addClass",
+        }).then((res) => {
+          setSuccess(res.data);
+        })
+      }
+    
+    const getAllClasses = () => {
+        Axios({
+            method: "GET",
+            withCredentials: true,
+            url: "/getAllClasses"
+        }).then((res) => {
+            setAllClasses(res.data)
+        })
+    }
       useEffect(() => {
         getYourClasses()
         getLoginUser()
+        getAllClasses()
       }, [])
 
+      
 
-    
     return(
         <div class="body">
             <NavBar />
@@ -68,7 +92,19 @@ export default function Dashboard() {
                 {classes ?  <div class="getClasses">{classes.map((item)=><div key={item._id} class="class"><h1>{item.title}</h1><div class="line"></div><p>{item.description}</p></div>)}</div> : null}
             </div>
             <div id="addCourses">
-                
+                <div class="scrollDiv">
+                    <h3>Course List</h3>
+                    {allClasses ? <ol>{allClasses.map((item) => <li key={item._id}>{item.title} <button>Add Class</button></li>)}</ol> : null}
+                </div>
+                <div class="addClass">
+                    <h1>Add Class</h1>
+                    <h2>{success}</h2>
+                    <input
+                    placeholder="Class Id"
+                    onChange={(e) => setClassId(e.target.value)}
+                    />
+                    <button onClick={addStudentClass}>Submit</button>
+                </div>
             </div>
             <div id="dropClass">
             </div>
