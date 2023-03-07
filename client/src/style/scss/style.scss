@@ -701,10 +701,78 @@ body {
                     border:none;
                     border-radius:50px;
                 }
+
             }
         }
     }
-
+    // dashboard
+    .dashboardGreeting {
+        width:100%;
+        height:300px;
+        background-color:rgba(0, 0, 0, 0.2);
+        .pfp {
+            width:200px;
+            height:200px;
+            background-color:rgb(0, 0, 0);
+            border-radius:50%;
+            position:relative;
+            top:40px;
+            left:50px;
+        }
+        h1 {
+            text-align:center;
+            font-size:50px;
+            position:relative;
+            right:400px;
+            bottom:80px;
+        }
+    }
+    .dashboardNav {
+        width:100%;
+        height:60px;
+        background-color:rgba(0, 0, 0, 0.048);
+        ul {
+            position:relative;
+            top:15px;
+            margin:0 auto;
+        }
+        ul li {
+            display:inline;
+            padding:0px 100px;
+            text-align:center;
+            margin: 0 auto;
+            position:relative;
+            left:200px;
+        }
+        ul li a {
+            scroll-behavior: smooth;
+        }
+    }
+    #courses {
+        width:100%;
+        height:100vh;
+        background-color:red;
+    }
+    #addCourses {
+        width:100%;
+        height:100vh;
+        background-color:blue;
+    }
+    #dropClass {
+        width:100%;
+        height:100vh;
+        background-color:green;
+    }
+    #creditHours {
+        width:100%;
+        height:100vh;
+        background-color:orange;
+    }
+    #totalCost {
+        width:100%;
+        height:100vh;
+        background-color:purple;
+    }
 }
     // Sign Up Page
     .body2 {
@@ -893,6 +961,10 @@ body {
                 }
                 button:hover {
                     background-color:#e2a03b;
+                }
+                h1 {
+                    font-family:$cursive-font;
+                    font-size:70px;
                 }
             }
         }
