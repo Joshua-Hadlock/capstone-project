@@ -19,6 +19,16 @@ exports.getAllUsers = async (req, res) => {
     })
 }
 
+exports.findClass = async (req, res) => {
+    pool.query(`SELECT * from courses where title = 1$`, [req.body.searchClassName], (err, results) => {
+        if (err) throw err;
+        for (let row of results.rows) {
+            console.log(JSON.stringify(row));
+        }
+        res.status(200).json(results.rows);
+    })
+}
+
 exports.authUserByName = async (username) => {
     const results = await
         pool.query('SELECT * from users where username = $1', [username])
@@ -89,6 +99,15 @@ exports.createClass = async (req, res) => {
         if (err) throw err;
     })
     pool.query(`insert into courses (id, title, description, schedule, classroom_number, maximum_capacity, credit_hours, tuition_cost) values ($1, $2, $3, $4, $5, $6, $7, $8)`, [data.id, data.title, data.description, data.schedule, data.classroom_number, data.maximum_capacity, data.credit_hours, data.tution_cost], (err) => {
+        if (err) throw err;
+    })
+}
+
+exports.deleteClass = async (req, res) => {
+    pool.query(`delete from user_course where courses_id = $1`, [req.body.selectedClass], (err) => {
+        if (err) throw err;
+    })
+    pool.query(`delete from courses where id = $1`, [req.body.selectedClass], (err) => {
         if (err) throw err;
     })
 }

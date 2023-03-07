@@ -158,11 +158,18 @@ app.get('/admin', checkAuthenticated, checkAdmin, (req, res) => {
 })
 
 app.post('/createNewClass', checkAuthenticated, checkAdmin, captureData, db.createClass, (req, res) => {
-    logger.log('I ran')
+    logger.log('created class')
     res.send('class created')
 })
 
-app.get('/different')
+app.post('/deleteClass', checkAuthenticated, checkAdmin, captureData, db.deleteClass, (req, res) => {
+    logger.log('class deleted');
+    res.send('class deleted')
+})
+
+app.get('/findClass', captureData, db.findClass, (req, res) => {
+    logger.log('found class')
+})
 
 app.get('*', function(req, res) {
     res.sendFile('index.html', {root: path.join(__dirname, '../client/build/')});
