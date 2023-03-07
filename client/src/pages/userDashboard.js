@@ -21,6 +21,20 @@ export default function Dashboard() {
       useEffect(() => {
         getYourClasses()
       }, [])
+
+      const addStudentClass = () => {
+        Axios({
+          method: "POST",
+          data: {
+            selectedClass: classId,
+          },
+          withCredentials: true,
+          url: "addClass",
+        }).then((res) => {
+          setSuccess(res.data);
+        })
+      }
+
     return(
         <div class="body">
             <NavBar />
@@ -42,7 +56,42 @@ export default function Dashboard() {
                 {classes ?  <div class="getClasses">{classes.map((item)=><div key={item._id} class="class"><h1>{item.title}</h1><div class="line"></div><p>{item.description}</p></div>)}</div> : null}
             </div>
             <div id="addCourses">
-                
+                <div class="scrollDiv">
+                    <h3>Course List</h3>
+                    <ol>
+                        <li>placerat in <button>Add Class</button></li>
+                        <li>placerat in <button>Add Class</button></li>
+                        <li>placerat in <button>Add Class</button></li>
+                        <li>placerat in <button>Add Class</button></li>
+                        <li>placerat in <button>Add Class</button></li>
+                        <li>placerat in <button>Add Class</button></li>
+                        <li>placerat in <button>Add Class</button></li>
+                        <li>placerat in <button>Add Class</button></li>
+                        <li>placerat in <button>Add Class</button></li>
+                        <li>placerat in <button>Add Class</button></li>
+                        <li>placerat in <button>Add Class</button></li>
+                        <li>placerat in <button>Add Class</button></li>
+                        <li>placerat in <button>Add Class</button></li>
+                        <li>placerat in <button>Add Class</button></li>
+                        <li>placerat in <button>Add Class</button></li>
+                        <li>placerat in <button>Add Class</button></li>
+                        <li>placerat in <button>Add Class</button></li>
+                        <li>placerat in <button>Add Class</button></li>
+                        <li>placerat in <button>Add Class</button></li>
+                        <li>placerat in <button>Add Class</button></li>
+                        <li>placerat in <button>Add Class</button></li>
+                        <li>placerat in <button>Add Class</button></li>
+                    </ol>
+                </div>
+                <div class="addClass">
+                    <h1>Add Class</h1>
+                    <h2>{success}</h2>
+                    <input
+                    placeholder="Class Id"
+                    onChange={(e) => setClassId(e.target.value)}
+                    />
+                    <button onClick={addStudentClass}>Submit</button>
+                </div>
             </div>
             <div id="dropClass">
             </div>
