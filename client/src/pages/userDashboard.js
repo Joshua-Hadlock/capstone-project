@@ -1,13 +1,16 @@
 import NavBar from "../components/navbar"
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 export default function Dashboard() {
     const [success, setSuccess] = useState(null);
     const [classId, setClassId] = useState(null);
     const [classes, setClasses] = useState(null);
-
+    const [username, setUsername] = useState(null);
+    const [data, setData] = useState(null);
+    const navigate = useNavigate();
     const getYourClasses = () => {
         Axios({
           method: "GET",
@@ -18,15 +21,38 @@ export default function Dashboard() {
           setClasses(res.data)
         })
       }
+      const getLoginUser = () => {
+        Axios({
+          method: "GET",
+          withCredentials: true,
+          url: "/getLoginUser",
+        }).then((res) => {
+          if(res.data[0].username === "FAILURE") {
+            setData(null); 
+            navigate("/login")
+          } else if(res.data.username) {
+            setData(res.data)
+            setUsername(res.data.username)
+          }else {
+            setData(null); 
+            navigate("/login")
+          }
+        });
+      }
+
       useEffect(() => {
         getYourClasses()
+        getLoginUser()
       }, [])
+
+
+    
     return(
         <div class="body">
             <NavBar />
             <div class="dashboardGreeting">
                 <div class="pfp"></div>
-                <h1>Welcome back Joshua</h1>
+                <h1>Welcome back {username}</h1>
             </div>
             <div class="dashboardNav">
                 <ul>
