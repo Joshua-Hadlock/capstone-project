@@ -52,23 +52,23 @@ export default function Testing() {
     }).then((res) => console.log(res));
   };
 
-  const createNewClass = () => {
-    Axios({
-      method: "POST",
-      data: {
-        id: newClassId,
-        title: newClassTitle,
-        description: newClassDescription,
-        schedule: newClassSchedule,
-        classroom_number: newClass_number,
-        maximum_capacity: newClassCapacity,
-        credit_hours: newClassHours,
-        tution_cost: newClassCost
-      },
-      withCredentials: true,
-      url: "/createNewClass",
-    }).then((res) => console.log(res))
-  }
+  // const createNewClass = () => {
+  //   Axios({
+  //     method: "POST",
+  //     data: {
+  //       id: newClassId,
+  //       title: newClassTitle,
+  //       description: newClassDescription,
+  //       schedule: newClassSchedule,
+  //       classroom_number: newClass_number,
+  //       maximum_capacity: newClassCapacity,
+  //       credit_hours: newClassHours,
+  //       tution_cost: newClassCost
+  //     },
+  //     withCredentials: true,
+  //     url: "/createNewClass",
+  //   }).then((res) => console.log(res))
+  // }
 
   const getAllClasses = () => {
     Axios({
@@ -82,7 +82,7 @@ export default function Testing() {
 
   return (
     <div className="body2">
-      <div class="blackoutBody">
+      <div className="blackoutBody">
 
             <div className="header">
                 <div className="headerLeft">
@@ -142,64 +142,7 @@ export default function Testing() {
           
           <p>Already have an account ? log in <a href="/login">here</a></p>
           {/* modal */}
-              <button type="button" id="launchButton" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Create a Class
-              </button>
 
-
-              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                     
-                    <div class="createClass">
-                      <h1>Create a Class</h1>
-                      <input
-                        placeholder="New Class Id"
-                        onChange={(e) => setNewClassId(e.target.value)}
-                      />
-                      <input
-                        placeholder="New Class Title"
-                        onChange={(e) => setNewClassTitle(e.target.value)}
-                      />
-                      <input
-                        placeholder="New Class Description"
-                        onChange={(e) => setNewClassDescription(e.target.value)}
-                      />
-                      <input
-                        placeholder="New Class Schedule"
-                        onChange={(e) => setNewClassSchedule(e.target.value)}
-                      />
-                      <input
-                        placeholder="New Class Number"
-                        onChange={(e) => setNewClass_number(e.target.value)}
-                      />
-                      <input
-                        placeholder="New Class Capacity"
-                        onChange={(e) => setNewClassCapacity(e.target.value)}
-                      />
-                      <input
-                        placeholder="New Class Hours"
-                        onChange={(e) => setNewClassHours(e.target.value)}
-                      />
-                      <input
-                        placeholder="New Class Cost"
-                        onChange={(e) => setNewClassCost(e.target.value)}
-                      />
-
-                      <button data-bs-dismiss="modal" onClick={createNewClass}>Submit</button>
-                    </div>
-                    </div>
-                    <div class="modal-footer">
-
-                    </div>
-                  </div>
-                </div>
-              </div>
           </div>
       </div>
     </div>

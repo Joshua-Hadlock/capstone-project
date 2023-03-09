@@ -89,7 +89,7 @@ function checkAuthenticatedPost(req, res, next) {
         return next();
     } else {
         res.status(200).json([
-            {username: 'FAILURE, NOT AN ADMIN'},
+            {username: 'FAILURE'},
         ]);
     }
     
@@ -175,7 +175,6 @@ app.get('/findClass', captureData, db.findClass, (req, res) => {
 })
 
 app.get('*', function(req, res) {
-    
     res.sendFile('index.html', {root: path.join(__dirname, '../client/build/')});
   });
 

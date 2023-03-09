@@ -13,6 +13,7 @@ import PageNotFound from './pages/PageNotFound'
 import Help from './pages/Help'
 import Login from './pages/Login'
 import Dashboard from './pages/userDashboard'
+import Admin from './pages/adminPage'
 
 import NavBar from "./components/navbar";
 
@@ -29,6 +30,7 @@ function App() {
           <Route path="/help" element={<Help />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>
+          <Route path="/admin" element={<Admin />}></Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Router>
