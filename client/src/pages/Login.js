@@ -26,7 +26,7 @@ export default function Login() {
       url: "/login",
     }).then((res) => {
       setLogins(res.data)
-      navigate("/dashboard")
+      navigate("/dashboard/" + loginUsername)
     });
   };
 

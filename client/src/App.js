@@ -13,7 +13,8 @@ import PageNotFound from './pages/PageNotFound'
 import Help from './pages/Help'
 import Login from './pages/Login'
 import Dashboard from './pages/userDashboard'
-
+import Classes from './pages/classes';
+import Class from './pages/individualClass'
 import NavBar from "./components/navbar";
 
 
@@ -28,7 +29,9 @@ function App() {
           <Route path="/about" element={<About />}></Route>
           <Route path="/help" element={<Help />}></Route>
           <Route path="/login" element={<Login />}></Route>
-          <Route path="/dashboard" element={<Dashboard />}></Route>
+          <Route path="/dashboard/:username" element={<Dashboard />}></Route>
+          <Route path="/classes" element={<Classes />}></Route>
+          <Route path="/class/:classId" element={<Class />}></Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Router>

@@ -85,11 +85,12 @@ function checkAdmin(req, res, next) {
 
 function checkAuthenticatedPost(req, res, next) {
     if (req.isAuthenticated()) {
+        console.log(req.user)
         res.locals.user = req.user;
         return next();
     } else {
         res.status(200).json([
-            {username: 'FAILURE'},
+            'FAILURE',
         ]);
     }
     
@@ -145,6 +146,7 @@ app.get('/logout', (req, res) => {
 })
 
 app.get('/getAllClasses', db.getAllClasses)
+app.get('/getAllAddableClasses', checkAuthenticated, db.requestAddableClasses)
 
 app.post('/addClass', checkAuthenticated, captureData, db.addStudentClass, (req, res) => {
     res.send('it worked!!!')
@@ -173,6 +175,8 @@ app.post('/deleteClass', checkAuthenticated, checkAdmin, captureData, db.deleteC
 app.get('/findClass', captureData, db.findClass, (req, res) => {
     logger.log('found class')
 })
+
+app.post('/getOneClass', captureData, db.getOneClass)
 
 app.get('*', function(req, res) {
     res.sendFile('index.html', {root: path.join(__dirname, '../client/build/')});

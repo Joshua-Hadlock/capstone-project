@@ -59,10 +59,44 @@ exports.getAllClasses = async (req, res) => {
     pool.query(`select * from courses`, (err, results) => {
         if (err) throw err;
         for (let row of results.rows) {
-            console.log(JSON.stringify(row));
         }
         res.status(200).json(results.rows);
     })
+}
+
+exports.getOneClass = async (req, res) => {
+    pool.query(`select * from courses where id = $1`, [req.body.selectedOneCourse], (err, results) => {
+        if (err) throw err;
+        for (let row of results.rows) {
+        }
+        res.status(200).json(results.rows);
+    })
+}
+
+
+
+exports.requestAddableClasses = async (req, res) => {
+    pool.query(`select *, case when users_courses.cnt is null then 0 else users_courses.cnt end as cnt2 into tempCourses from courses
+    left join(select courses_id, COUNT(courses_id) as cnt from user_course Group By courses_id) as users_courses on courses.id = users_courses.courses_id;` , (err) => {
+        if (err) throw err;
+        pool.query(`ALTER TABLE tempCourses
+    DROP COLUMN cnt;`, (err) => {
+        if (err) throw err;
+        pool.query(`
+    select * from tempCourses
+    where id not in (select courses_id from user_course where users_id = $1) and maximum_capacity > cnt2;`, [res.locals.user.id], (err, results) => {
+        if (err) throw err;
+        for (let row of results.rows) {
+            console.log(JSON.stringify(row));
+        }
+        pool.query(`drop table tempCourses`);
+        res.status(200).json(results.rows);
+    })
+    })
+    })
+    
+    
+    
 }
 
 exports.addStudentClass = async (req, res) => {

@@ -28,13 +28,23 @@ export default function Dashboard() {
           withCredentials: true,
           url: "/getLoginUser",
         }).then((res) => {
-          if(res.data[0].username === "FAILURE") {
-            setData(null); 
-            navigate("/login")
-          } else if(res.data.username) {
-            setData(res.data)
-            setUsername(res.data)
-          }else {
+          console.log(res.data)
+          console.log(res.data.hasOwnProperty('username'))
+
+
+
+
+          const checkFailed = res.data
+          if(checkFailed.hasOwnProperty('username')) {
+            if(res.data.username) {
+              console.log(res.data)
+              setData(res.data)
+              setUsername(res.data.username)
+            }else {
+              setData(null); 
+              navigate("/login")
+            }
+          } else {
             setData(null); 
             navigate("/login")
           }
@@ -54,11 +64,11 @@ export default function Dashboard() {
         })
       }
     
-    const getAllClasses = () => {
+    const getAllAddableClasses = () => {
         Axios({
             method: "GET",
             withCredentials: true,
-            url: "/getAllClasses"
+            url: "/getAllAddableClasses"
         }).then((res) => {
             setAllClasses(res.data)
         })
@@ -66,7 +76,7 @@ export default function Dashboard() {
       useEffect(() => {
         getYourClasses()
         getLoginUser()
-        getAllClasses()
+        getAllAddableClasses()
       }, [])
 
       
@@ -89,12 +99,12 @@ export default function Dashboard() {
             </div>
             <div id="courses">
                 <h1>Your Classes</h1>
-                {classes ?  <div class="getClasses">{classes.map((item)=><div key={item._id} class="class"><h1>{item.title}</h1><div class="line"></div><p>{item.description}</p></div>)}</div> : null}
+                {classes ?  <div class="getClasses">{classes.map((item)=><div key={item.id} class="class"><h1>{item.title}</h1><div class="line"></div><p>{item.description}</p></div>)}</div> : null}
             </div>
             <div id="addCourses">
                 <div class="scrollDiv">
                     <h3>Course List</h3>
-                    {allClasses ? <ol>{allClasses.map((item) => <li key={item._id}>{item.title} <button>Add Class</button></li>)}</ol> : null}
+                    {allClasses ? <ol>{allClasses.map((item) => <li key={item.id}>{item.title} <button>Add Class</button></li>)}</ol> : null}
                 </div>
                 <div class="addClass">
                     <h1>Add Class</h1>
