@@ -158,7 +158,7 @@ app.post(`/removeClass`, checkAuthenticated, captureData, db.removeStudentClass,
 
 app.get('/allYourClasses', checkAuthenticated, db.getAllYourClasses);
 
-app.get('/admin', checkAuthenticated, checkAdmin, (req, res) => {
+app.get('/admins', checkAuthenticated, checkAdmin, (req, res) => {
     res.send('hello there')
 })
 

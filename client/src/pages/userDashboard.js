@@ -85,15 +85,15 @@ export default function Dashboard() {
         <div class="body">
             <NavBar />
             <div class="dashboardGreeting">
+              <div class="blackout">
                 <div class="pfp"></div>
                 <h1>Welcome back {username}</h1>
+              </div> 
             </div>
             <div class="dashboardNav">
                 <ul>
                     <a href="#courses"><li>Courses</li></a>
                     <a href="#addCourses"><li>Add Courses</li></a>
-                    <a href="#dropClass"><li>Drop Class</li></a>
-                    <a href="#creditHours"><li>Credit Hours</li></a>
                     <a href="#totalCost"><li>Total Cost</li></a>
                 </ul>
             </div>
@@ -114,13 +114,66 @@ export default function Dashboard() {
                     onChange={(e) => setClassId(e.target.value)}
                     />
                     <button onClick={addStudentClass}>Submit</button>
+                    {/* enrolled */}
+                    <div class="recentlyAdded">
+                      <h1>Recently Added Classes </h1>
+                      <div class="addedClasses">
+                        <h1>Introduction to Computer Science</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamcorper sit amet risus nullam eget felis eget nunc lobortis.</p>
+                      </div>
+                    </div>
+                    
                 </div>
             </div>
-            <div id="dropClass">
-            </div>
-            <div id="creditHours">
-            </div>
             <div id="totalCost">
+              <div class="list">
+                <div class="logo"></div>
+                <h1>Payment Receipt</h1>
+                <ul class="topPaper">
+                  <li>McQuackers Education for young ducklings</li>
+                  <li>4235 W 3546 Narnia Ave</li>
+                  <li>Iceland</li>
+                  <li>User: Joshua Hadlock</li>
+                </ul>
+                <div class="line"></div>
+                <div class="desc">
+                  <div class="desc1"><h3>Charges</h3></div>
+                  <div class="desc2"><h3>Cost</h3></div>
+                </div>
+                <ul class="classes">
+                  <li>Data Structures<p>$900</p></li>
+                  <li>Computer Architecture<p>$900</p></li>
+                  <li>Advanced Algorithms<p>$900</p></li>
+                  <li>Networking & Security<p>$900</p></li>
+                  <li>Object-Oriented Programming<p>$900</p></li>
+                  <li>Database Design & Management<p>$900</p></li>
+                  <li>Software Engineering<p>$900</p></li>
+                  <li>Yearbook<p>$900</p></li>
+                  <li>Pencils<p>$900</p></li>
+                  <li>Calculator<p>$900</p></li>
+                  <li>Pens<p>$900</p></li>
+                  <li>Paper<p>$900</p></li>
+                  <li>Pool Pass<p>$900</p></li>
+                  <li>Library Pass<p>$900</p></li>
+                  <li>State Tax<p>$900</p></li>
+                  <li>Veterinary Tax<p>$900</p></li>
+                  <li>Pond Tax<p>$900</p></li>
+                  <li>Sales Tax<p>$900</p></li>
+                  <li>Corporate Tax<p>$900</p></li>
+                  <li>Annoyance Tax<p>$900</p></li>
+                  <li>Just Because Tax<p>$900</p></li>
+                  <li>Library Fee<p>$900</p></li>
+                  <li>Lunch Fee<p>$900</p></li>
+                  <li>Parking Fee<p>$900</p></li>
+                  <li>School Fee<p>$900</p></li>
+                  <li>Rec Fee<p>$900</p></li>
+                  <li>Annoyance Fee<p>$900</p></li>
+                  <li>Just Because Fee<p>$900000</p></li>
+                  <br />
+                  <h1 class="paperTotal">Total Cost: $925,200</h1>
+                </ul>
+
+                </div>
             </div>
         </div>
     )
