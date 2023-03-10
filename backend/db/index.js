@@ -20,7 +20,7 @@ exports.getAllUsers = async (req, res) => {
 }
 
 exports.findClass = async (req, res) => {
-    pool.query(`SELECT * from courses where title = 1$`, [req.body.searchClassName], (err, results) => {
+    pool.query(`SELECT * from courses where title ilike $1`, [`%${req.body.searchClassName}%`], (err, results) => {
         if (err) throw err;
         for (let row of results.rows) {
             console.log(JSON.stringify(row));

@@ -9,8 +9,9 @@ export default function Dashboard() {
     const [classId, setClassId] = useState(null);
     const [classes, setClasses] = useState(null);
     const [username, setUsername] = useState(null);
+    const [address, setAddress] = useState(null)
     const [allClasses, setAllClasses] = useState(null);
-    const [data, setData] = useState(null);
+    const [userData, setUserData] = useState(null);
     const navigate = useNavigate();
     const getYourClasses = () => {
         Axios({
@@ -28,8 +29,13 @@ export default function Dashboard() {
           withCredentials: true,
           url: "/getLoginUser",
         }).then((res) => {
+          console.log(res.data.is_admin)
+          if (res.data.is_admin) {
+            console.log('I ran')
+            navigate('/admin')
+          }
           console.log(res.data)
-          console.log(res.data.hasOwnProperty('username'))
+          // console.log(res.data.hasOwnProperty('username'))
 
 
 
@@ -37,20 +43,21 @@ export default function Dashboard() {
           const checkFailed = res.data
           if(checkFailed.hasOwnProperty('username')) {
             if(res.data.username) {
-              console.log(res.data)
-              setData(res.data)
+              setUserData(res.data)
+              setAddress(res.data.address)
               setUsername(res.data.username)
             }else {
-              setData(null); 
+              setUserData(null); 
               navigate("/login")
             }
           } else {
-            setData(null); 
+            setUserData(null); 
             navigate("/login")
           }
         });
       }
         
+
     const addStudentClass = () => {
         Axios({
           method: "POST",
@@ -83,7 +90,7 @@ export default function Dashboard() {
 
     return(
         <div class="body">
-            <NavBar />
+            <NavBar username={username} />
             <div class="dashboardGreeting">
               <div class="blackout">
                 <div class="pfp"></div>
@@ -131,9 +138,8 @@ export default function Dashboard() {
                 <h1>Payment Receipt</h1>
                 <ul class="topPaper">
                   <li>McQuackers Education for young ducklings</li>
-                  <li>4235 W 3546 Narnia Ave</li>
-                  <li>Iceland</li>
-                  <li>User: Joshua Hadlock</li>
+                  <li>{address}</li>
+                  <li>User: {username}</li>
                 </ul>
                 <div class="line"></div>
                 <div class="desc">
@@ -141,6 +147,7 @@ export default function Dashboard() {
                   <div class="desc2"><h3>Cost</h3></div>
                 </div>
                 <ul class="classes">
+                {classes ?  <>{classes.map((item)=><li>{item.title}<p>{item.tuition_cost}</p></li>)}</> : null}
                   <li>Data Structures<p>$900</p></li>
                   <li>Computer Architecture<p>$900</p></li>
                   <li>Advanced Algorithms<p>$900</p></li>

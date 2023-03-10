@@ -38,15 +38,19 @@ export default function Dashboard() {
           withCredentials: true,
           url: "/getLoginUser",
         }).then((res) => {
-          if(res.data[0].username === "FAILURE") {
+          const checkFailed = res.data
+          if(checkFailed.hasOwnProperty('username')) {
+            if(res.data.username) {
+              // console.log(res.data)
+              setData(res.data)
+              setUsername(res.data.username)
+            }else {
+              setData(null); 
+              navigate("/login")
+            }
+          } else {
             setData(null); 
             navigate("/login")
-          } else if(res.data.username) {
-            setData(res.data)
-            setUsername(res.data)
-          }else {
-            setData(null); 
-            // navigate("/login")
           }
         });
       }
@@ -103,7 +107,7 @@ export default function Dashboard() {
 
     return(
         <div class="body">
-            <NavBar />
+            <NavBar username={username}/>
             <div class="adminDashboardGreeting">
               <div class="blackout">
                 <div class="pfp"></div>
