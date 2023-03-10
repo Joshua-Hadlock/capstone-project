@@ -37,7 +37,7 @@ export default function Classes() {
     },[])
 
     return(
-    <div className="body">
+    <div className="body" style={{height: "100vh"}}>
     <div className="header">
         <div className="headerLeft">
             <ul>
@@ -57,11 +57,42 @@ export default function Classes() {
         </div>
     </div>
     {/* header */}
-    <div>
-        <h1>CLASSES</h1>
-        <h3>Course List</h3>
+    <div class="dFlex">
+        <div class="classList">
         <input type='search' placeholder="search for class" onChange={(e) => setSearchFor(e.target.value)}></input> <button onClick={queriedClassSearch}>Search</button>
-        {allClasses ? <ol>{allClasses.map((item) => <li key={item.id} onClick={(e) => {navigate(('/class/' + item.id))}}>{item.title}</li>)}</ol> : null}
+            {allClasses ? <ol>{allClasses.map((item) => <li key={item.id} onClick={(e) => {navigate(('/class/' + item.id))}}>{item.title}</li>)}</ol> : null}
+            {/* <ol>
+                <li>Introduction to Computer Science</li>
+                <li>Data Structures</li>
+                <li>Computer Architecture</li>
+                <li>Advanced Algorithms</li>
+                <li>Networking & Security</li>
+                <li>Object-Oriented Programming</li>
+                <li>Database Design & Management</li>
+                <li>Software Engineering</li>
+                <li>Operating Systems</li>
+                <li>Computer Graphics</li>
+                <li>Software Testing & Verification</li>
+                <li>Compiler Design</li>
+                <li>Artificial Intelligence</li>
+                <li>Computer Vision</li>
+                <li>Systems Programming</li>
+                <li>Machine Learning</li>
+                <li>Parallel Computing</li>
+                <li>Introduction to Information Systems</li>
+                <li>Computer Networking</li>
+                <li>Database Design and Management</li>
+                <li>Web Design and Development</li>
+                <li>Systems Analysis and Design</li>
+            </ol> */}
+            
+        </div>
+        <div class="classSearch">
+            
+        </div>
+    <div>
     </div>
+    
+</div>
 </div>
 )}
