@@ -4,6 +4,7 @@
 
 body {
   background-color: black;
+  height: 100vh;
 }
 
 .body {
@@ -957,7 +958,7 @@ body {
 .body #totalCost {
   width: 100%;
   height: 70vh;
-  background-color: rgb(225, 225, 225);
+  background-color: rgb(255, 255, 255);
 }
 .body #totalCost .list {
   width: 60%;
@@ -1375,94 +1376,50 @@ body {
   position: relative;
   top: 40px;
 }
-.body #totalCost {
-  width: 100%;
-  height: 70vh;
-  background-color: rgba(255, 255, 255, 0.769);
-}
-.body #totalCost .list {
-  width: 60%;
-  height: 600px;
-  background-color: white;
-  margin: 0 auto;
-  position: relative;
-  top: 50px;
-  overflow-y: auto;
-}
-.body #totalCost .list h1 {
-  text-align: center;
-  font-size: 20px;
-  margin-top: 50px;
-}
-.body #totalCost .list .line {
-  width: 90%;
-  height: 2px;
-  background-color: black;
-  margin: 0 auto;
-  position: relative;
-  bottom: 50px;
-}
-.body #totalCost .list .paperTotal {
-  text-align: left;
-  position: relative;
-  bottom: 50px;
-  margin-bottom: 50px;
-}
-.body #totalCost .list .logo {
-  width: 100px;
-  height: 100px;
-  background-image: url(../../images/blackLogo.png);
-  background-size: cover;
-  margin: 0 auto;
-  position: relative;
-  top: 20px;
-}
-.body #totalCost .list .desc {
-  width: 90%;
-  height: 50px;
-  margin: 0 auto;
+.body .dFlex {
   display: flex;
   flex-direction: row;
 }
-.body #totalCost .list .desc .desc1 {
-  width: 50%;
-  height: 100%;
+.body .dFlex .classList {
+  width: 500px;
+  height: 870px;
+  background-color: red;
+  overflow-y: auto;
 }
-.body #totalCost .list .desc .desc1 h3 {
-  text-align: center;
-  font-size: 20px;
-}
-.body #totalCost .list .desc .desc2 {
-  width: 50%;
-  height: 100%;
-}
-.body #totalCost .list .desc .desc2 h3 {
-  text-align: center;
-  font-size: 20px;
-}
-.body #totalCost .list .topPaper {
-  height: 200px;
-  position: relative;
-  left: 50px;
-  top: 40px;
-}
-.body #totalCost .list ul {
-  margin: 0 auto;
-  display: block;
-  list-style-type: none;
+.body .dFlex .classList ol {
   width: 100%;
-  height: 500px;
-  position: relative;
-  left: 50px;
-  bottom: 0px;
+  height: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
-.body #totalCost .list ul li {
-  height: 15px;
-  margin: 10px;
-  font-size: 10px;
-  width: 750px;
-  display: flex;
-  justify-content: space-between;
+.body .dFlex .classList ol li:nth-child(odd) {
+  width: 90%;
+  height: 50px;
+  background-color: green;
+  padding-top: 13px;
+  padding-left: 10px;
+  margin: 0 auto;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.body .dFlex .classList ol li:nth-child(even) {
+  width: 90%;
+  height: 50px;
+  background-color: blue;
+  padding-top: 13px;
+  padding-left: 10px;
+  margin: 0 auto;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.body .dFlex .classSearch {
+  width: 800px;
+  height: 500px;
+  background-color: orange;
+  margin: 0 auto;
+  margin-top: 100px;
+  border-radius: 10px;
 }
 
 .body2 {

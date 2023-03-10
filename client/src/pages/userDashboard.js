@@ -103,7 +103,6 @@ export default function Dashboard() {
             </div>
             <div id="addCourses">
                 <div class="scrollDiv">
-                    <h3>Course List</h3>
                     {allClasses ? <ol>{allClasses.map((item) => <li key={item.id}>{item.title} <button>Add Class</button></li>)}</ol> : null}
                 </div>
                 <div class="addClass">

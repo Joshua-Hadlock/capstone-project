@@ -1,5 +1,13 @@
 import { Link } from "react-router-dom";
-export default function NavBar() {
+
+export default function NavBar({username}) {
+
+    var navUsername
+
+    function changeUsername(username) {
+        navUsername = username
+    }
+
     return (
         <div class="header">
                 <div class="headerLeft">
@@ -15,7 +23,7 @@ export default function NavBar() {
                     <ul>
                         <li><a href="http://localhost:3001/">Trivia</a></li>
                         <li><a href="/about">About</a></li>
-                        <li><a href="/Login">Sign In</a></li>
+                        <li>{username}</li>
                     </ul> 
                 </div>
             </div>
