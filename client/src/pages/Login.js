@@ -15,7 +15,19 @@ export default function Login() {
   const [classes, setClasses] = useState(null);
 
   const login = () => {
-    setLogins('authenticating')
+    setLogins(
+    <div class="center">
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+    </div>)
     Axios({
       method: "POST",
       data: {
@@ -142,11 +154,7 @@ export default function Login() {
             <button onClick={getAllUsers}>Submit</button>
             {userList ? <h1>User List <ul>{userList.map((item)=><li key={item._id}>{item.username}</li>)}</ul></h1> : null}
           </div>
-          <div class="logout">
-            <h1>Logout</h1>
-            <button onClick={logout}>Submit</button>
-            {message ? <h1>{message}</h1> : null}
-          </div>
+
           {/* Get Classes */}
           {/* <div class="getClasses">
             <h1>Get your classes</h1>

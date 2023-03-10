@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 export default function Classes() {
     const navigate = useNavigate();
     const [allClasses, setAllClasses] = useState(null)
+    const [searchFor, setSearchFor] = useState(null)
     const getAllClasses = () => {
         Axios({
             method: "GET",
@@ -15,17 +16,28 @@ export default function Classes() {
             setAllClasses(res.data)
         })
     }
+    const queriedClassSearch = () => {
+        if (searchFor === '') {
+            getAllClasses()
+        } else {
+        Axios({
+            method: "POST",
+            data: {
+               searchClassName: searchFor
+            },
+            withCredentials: true,
+            url: "/findClass"
+        }).then((res) => {
+            setAllClasses(res.data)
+        })
+    }}
 
     useEffect(() => {
         getAllClasses()
     },[])
 
-
-    const navigateTo = (e) => {
-        navigate(('/class/' + e.id))
-    }
     return(
-    <div className="body" style={{height: "100vh"}}>
+    <div className="body" style={{height: "100%"}}>
     <div className="header">
         <div className="headerLeft">
             <ul>
@@ -47,7 +59,10 @@ export default function Classes() {
     {/* header */}
     <div class="dFlex">
         <div class="classList">
-            {/* {allClasses ? <ol>{allClasses.map((item) => <li key={item.id} onClick={(e) => {navigate(('/class/' + item.id))}}>{item.title}</li>)}</ol> : null} */}
+            <h1>Class List</h1>
+        <input type='search' placeholder="search for class" onChange={(e) => setSearchFor(e.target.value)}></input> <button onClick={queriedClassSearch}>Search</button>
+            {allClasses ? <ol>{allClasses.map((item) => <li key={item.id} onClick={(e) => {navigate(('/class/' + item.id))}}>{item.title}</li>)}</ol> : null}
+            {/* <input type="text" placeholder="Search For Class"></input><button>Search</button>
             <ol>
                 <li>Introduction to Computer Science</li>
                 <li>Data Structures</li>
@@ -71,13 +86,21 @@ export default function Classes() {
                 <li>Database Design and Management</li>
                 <li>Web Design and Development</li>
                 <li>Systems Analysis and Design</li>
-            </ol>
+            </ol> */}
             
         </div>
-        <div class="classSearch">
-            <input type="text"></input>
+        <div class="teachers">
+            <h1 class="topTeachers">Our Top Teachers</h1>
+            <div class="pictures">
+                <div class="daffy"><h1 class="daffyH1">Mr. Duck</h1><p>Is our system and analysis and design teacher he is one of our top teachers and is responsible for 1,200 ducklings recieving their Masters degree </p></div>
+                <div class="daisy"><h1 class="daffyH1">Ms. Duck</h1><p>Is our Machine Learning teacher she is one of the first female teachers *cough* only female teacher. </p></div>
+                <div class="scrooge"><h1 class="daffyH1">Mr. Duck</h1><p>Is our Introduction to Computer Science teacher, apart from being the principle as well he is one of the first teachers here at McQuackers.</p></div>
+                <div class="donald"><h1 class="daffyH1">Mr. Duck</h1><p>Is our Computer Vision teacher he is one of the best computer teachers.</p></div>
+            </div>
         </div>
+    <div>
     </div>
     
+</div>
 </div>
 )}

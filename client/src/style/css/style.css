@@ -740,6 +740,7 @@ body {
 .body #courses {
   width: 100%;
   height: fit-content;
+  background-color: white;
 }
 .body #courses .getClasses {
   width: 100%;
@@ -1171,14 +1172,14 @@ body {
 }
 .body #courses .class {
   width: 300px;
-  height: 400px;
+  height: 500px;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.099);
   margin: 0 auto;
   border-radius: 10px;
   position: relative;
   margin-top: 20px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 .body #courses .class .line {
@@ -1191,7 +1192,7 @@ body {
 }
 .body #courses .class h1 {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 30px;
+  font-size: 25px;
   color: black;
   font-weight: lighter;
   display: inline;
@@ -1204,6 +1205,15 @@ body {
   top: 50px;
   width: 90%;
   margin: 0 auto;
+}
+.body #courses .class button {
+  background-color: rgb(200, 0, 0);
+  position: relative;
+  top: 70px;
+  width: 150px;
+  border: none;
+  border-radius: 5px;
+  color: white;
 }
 .body #deleteCourse {
   width: 100%;
@@ -1383,7 +1393,7 @@ body {
 .body .dFlex .classList {
   width: 500px;
   height: 870px;
-  background-color: red;
+  background-color: rgb(235, 235, 235);
   overflow-y: auto;
 }
 .body .dFlex .classList ol {
@@ -1396,7 +1406,7 @@ body {
 .body .dFlex .classList ol li:nth-child(odd) {
   width: 90%;
   height: 50px;
-  background-color: green;
+  background-color: rgb(193, 193, 193);
   padding-top: 13px;
   padding-left: 10px;
   margin: 0 auto;
@@ -1406,20 +1416,108 @@ body {
 .body .dFlex .classList ol li:nth-child(even) {
   width: 90%;
   height: 50px;
-  background-color: blue;
+  background-color: rgb(217, 217, 217);
   padding-top: 13px;
   padding-left: 10px;
   margin: 0 auto;
   border-radius: 10px;
   margin-top: 10px;
 }
-.body .dFlex .classSearch {
-  width: 800px;
-  height: 500px;
-  background-color: orange;
+.body .dFlex input {
+  width: 300px;
+  height: 40px;
+  margin-left: 50px;
+}
+.body .dFlex button {
+  height: 40px;
+  width: 100px;
+  border: none;
+  background-color: rgb(0, 132, 255);
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  color: white;
+}
+.body .dFlex .teachers {
+  width: 60%;
+  height: 700px;
+  background-color: rgb(223, 223, 223);
   margin: 0 auto;
   margin-top: 100px;
   border-radius: 10px;
+}
+.body .dFlex .teachers .topTeachers {
+  font-family: "Raleway", sans-serif;
+  font-weight: bolder;
+}
+.body .dFlex .teachers h1 {
+  margin-top: 30px;
+}
+.body .dFlex .teachers .pictures {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 140px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.body .dFlex .teachers .pictures .daffy {
+  width: 200px;
+  height: 200px;
+  background-image: url(../../images/daffy.webp);
+  background-size: cover;
+  background-color: white;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+.body .dFlex .teachers .pictures .daffyH1 {
+  position: relative;
+  top: 190px;
+  font-family: "Raleway", sans-serif;
+  font-size: 40px;
+  font-weight: bolder;
+}
+.body .dFlex .teachers .pictures p {
+  position: relative;
+  top: 190px;
+}
+.body .dFlex .teachers .pictures .daisy {
+  width: 200px;
+  height: 200px;
+  background-image: url(../../images/daisy.webp);
+  background-size: cover;
+  background-color: white;
+  background-position: top;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+.body .dFlex .teachers .pictures .scrooge {
+  width: 200px;
+  height: 200px;
+  background-image: url(../../images/scrooge.webp);
+  background-size: cover;
+  background-color: white;
+  background-position: top;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+.body .dFlex .teachers .pictures .donald {
+  width: 200px;
+  height: 200px;
+  background-image: url(../../images/donald.webp);
+  background-size: cover;
+  background-color: white;
+  background-position: top;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+.body .dFlex h1 {
+  text-align: center;
+  margin-top: 20px;
+  font-family: "Annie Use Your Telescope", cursive;
+  font-size: 60px;
 }
 
 .body2 {
@@ -1788,6 +1886,79 @@ body {
   }
   100% {
     transform: scale3d(1, 1, 1);
+  }
+}
+HTML CSSResult Skip Results Iframe EDIT ON bodY {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.center {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0);
+  position: relative;
+  top: 120px;
+  right: 30px;
+}
+
+.wave {
+  width: 5px;
+  height: 100px;
+  background: linear-gradient(45deg, #FDBC58, #fff);
+  margin: 10px;
+  animation: wave 1s linear infinite;
+  border-radius: 20px;
+}
+
+.wave:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.wave:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.wave:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.wave:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.wave:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+.wave:nth-child(7) {
+  animation-delay: 0.6s;
+}
+
+.wave:nth-child(8) {
+  animation-delay: 0.7s;
+}
+
+.wave:nth-child(9) {
+  animation-delay: 0.8s;
+}
+
+.wave:nth-child(10) {
+  animation-delay: 0.9s;
+}
+
+@keyframes wave {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
   }
 }
 
