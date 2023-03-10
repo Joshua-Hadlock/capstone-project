@@ -75,7 +75,7 @@ export default function Classes() {
             
         </div>
         <div class="classSearch">
-            
+            <input type="text"></input>
         </div>
     </div>
     
