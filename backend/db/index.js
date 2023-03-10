@@ -107,15 +107,19 @@ exports.addStudentClass = async (req, res) => {
 
 
     if (currentClassCapacity < classCapacity) {
-        pool.query(`insert into user_course (courses_id, users_id)
+        pool.query(`insert into user_course (courses_id, users_id, credits, cost)
 
-    values
-    ((select id from courses where id = $1), (select id from users where id = $2))`, [req.body.selectedClass, res.locals.user.id])
+        values
+        ((select id from courses where id = $1), (select id from users where id = $2), (select credit_hours from courses where id = $1), (select tuition_cost from courses where id = $1))
+        `, [req.body.selectedClass, res.locals.user.id], (err, results) => {
+        if (err) throw err;
+        return('oof')
+    })
     }
 }
 
 exports.removeStudentClass = async (req, res) => {
-    pool.query(`delete from user_course where course_id = $1 and users_id = $2`, [req.body.selectedClass, res.locals.user.id], (err) => {
+    pool.query(`delete from user_course where courses_id = $1 and users_id = $2`, [req.body.selectedClass, res.locals.user.id], (err) => {
         if (err) throw err;
     })
 }

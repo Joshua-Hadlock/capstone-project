@@ -146,7 +146,9 @@ app.get('/logout', (req, res) => {
 })
 
 app.get('/getAllClasses', db.getAllClasses)
-app.get('/getAllAddableClasses', checkAuthenticated, db.requestAddableClasses)
+app.get('/getAllAddableClasses', checkAuthenticated, db.requestAddableClasses, (req, res) => {
+    res.send('successful')
+})
 
 app.post('/addClass', checkAuthenticated, captureData, db.addStudentClass, (req, res) => {
     res.send('it worked!!!')
