@@ -124,6 +124,14 @@ export default function Dashboard() {
             <div id="courses">
                 <h1>Your Classes</h1>
                 {classes ?  <div class="getClasses">{classes.map((item)=><div key={item.id} class="class"><h1>{item.title}</h1><div class="line"></div><p>{item.description}</p><button onClick={() => removeStudentClass(item.id)}>remove</button></div>)}</div> : null}
+                {/* <div class="getClasses">
+                  <div class="class">
+                    <h1>Software Engineering</h1>
+                    <div class="line"></div>
+                    <p>"This course provides an introduction to the fundamentals of software engineering. Topics covered include software development processes, requirements engineering, software design, testing, and maintenance. The course also covers various tools and techniques for software engineering, such as software project management, version control, refactoring, and software metrics. Students will have the opportunity to apply software engineering principles in the development of a software project."</p>
+
+                  </div>
+                </div> */}
             </div>
             <div id="addCourses">
                 <div class="scrollDiv">
