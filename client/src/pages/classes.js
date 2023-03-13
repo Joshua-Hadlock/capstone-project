@@ -90,7 +90,7 @@ export default function Classes() {
             
         </div>
         <div class="teachers">
-            <h1 class="topTeachers">Our Top Teachers</h1>
+            <h1 class="topTeachers">Meet Our Staff</h1>
             <div class="pictures">
                 <div class="daffy"><h1 class="daffyH1">Mr. Duck</h1><p>Is our system and analysis and design teacher he is one of our top teachers and is responsible for 1,200 ducklings recieving their Masters degree </p></div>
                 <div class="daisy"><h1 class="daffyH1">Ms. Duck</h1><p>Is our Machine Learning teacher she is one of the first female teachers *cough* only female teacher. </p></div>

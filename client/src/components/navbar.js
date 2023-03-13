@@ -40,8 +40,8 @@ export default function NavBar({username}) {
                         <ul class="dropdown-menu">
 
                         <div class="logout">
-                            <h1>Logout</h1>
-                            <button onClick={logout}>Submit</button>
+                            <h1 class="logoutH1" style={{fontSize:"15px", textAlign:"center", textTransform:'none'}}>Logout</h1>
+                            <button style={{marginLeft:"45px",fontSize:"10px", width:"70px", height:"20px", border:"none", borderRadius:"5px", backgroundColor:"#FDBC58"}} class="logoutButton" onClick={logout}>Submit</button>
                             {message ? <h1>{message}</h1> : null}
                         </div>
 

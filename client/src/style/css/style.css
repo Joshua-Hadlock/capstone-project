@@ -1519,6 +1519,49 @@ body {
   font-family: "Annie Use Your Telescope", cursive;
   font-size: 60px;
 }
+.body .individualClassBody {
+  width: 100%;
+  height: 100%;
+  background-image: url(../../images/indClassArt.jpg);
+  background-size: cover;
+}
+.body .individualClassBody .blackout {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.506);
+}
+.body .individualClassBody .blackout .individualClass {
+  width: 70%;
+  height: 700px;
+  background-color: white;
+  margin: 0 auto;
+  position: relative;
+  top: 70px;
+  border-radius: 10px;
+  text-align: center;
+}
+.body .individualClassBody .blackout .individualClass ol {
+  width: 100%;
+  list-style-type: none;
+  height: 70%;
+  margin: 0;
+  padding: 0;
+  background-color: green;
+  position: relative;
+  top: 100px;
+}
+.body .individualClassBody .blackout .individualClass ol li {
+  width: 90%;
+  position: relative;
+  background-color: red;
+  font-size: 30px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+.body .individualClassBody .blackout h1 {
+  position: relative;
+  top: 50px;
+}
 
 .body2 {
   background-image: url(../../images/nature.jpeg);

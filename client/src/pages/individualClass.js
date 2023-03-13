@@ -39,14 +39,38 @@ export default function Class() {
             <ul>
                 <li><a href="http://localhost:3001/">Trivia</a></li>
                 <li><a href="/">Home</a></li>
-                <li><a href="/">Sign In</a></li>
+                <li><a href="/login">Sign In</a></li>
             </ul> 
         </div>
     </div>
     {/* header */}
-    <div>
-        <h1>CLASS</h1>
-        {theClass ? <ol>{theClass.map((item) => <li key={item._id}>{item.title}</li>)}</ol> : null}
+    <div class="individualClassBody">
+        <div class="blackout">
+            <div class="individualClass">
+                {/* {theClass ? <ol>{theClass.map((item) => <li key={item._id}>{item.title}</li>)}</ol> : null} */}
+                <h1>Introduction to Computer Science</h1>
+                <ol>
+                    <li>CSCI-1001</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Porttitor leo a diam sollicitudin tempor id eu nisl. Posuere morbi leo urna molestie at elementum.</li>
+                    <li>Schedule: mtf @2:15</li>
+                    <li>Classroom: 217</li>
+                    <li>Class Capacity: 20</li>
+                    <li>Credit Hours: 2</li>
+                    <li>$900</li>
+                </ol>    
+            </div>
+        </div>
+
+
     </div>
 </div>
 )}
+
+//class Id 
+//class name
+//class Description
+//class schedule
+//classroom number 
+//max capacity
+//credit hours
+//tution cost
