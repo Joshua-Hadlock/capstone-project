@@ -174,6 +174,10 @@ app.post('/deleteClass', checkAuthenticated, checkAdmin, captureData, db.deleteC
     res.send('class deleted')
 })
 
+app.post('/deleteUser', checkAuthenticatedPost, checkAdminPost, captureData, db.deleteUser, (req, res) => {
+    logger.log('user deleted')
+})
+
 app.post('/findClass', captureData, db.findClass, (req, res) => {
     logger.log('found class')
 })

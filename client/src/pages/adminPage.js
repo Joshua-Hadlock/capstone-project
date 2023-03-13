@@ -5,11 +5,13 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function Dashboard() {
+    const [random, setRandom] = useState(Math.random());
     const [success, setSuccess] = useState(null);
     const [classId, setClassId] = useState(null);
     const [classes, setClasses] = useState(null);
     const [username, setUsername] = useState(null);
     const [allClasses, setAllClasses] = useState(null);
+    const [allUsers, setAllUsers] = useState(null);
     const [data, setData] = useState(null);
     const [allAddableClasses, setAllAddableClasses] = useState(null);
     const [newClassId, setNewClassId] = useState(null);
@@ -20,7 +22,10 @@ export default function Dashboard() {
     const [newClassCapacity, setNewClassCapacity] = useState(null);
     const [newClassHours, setNewClassHours] = useState(null);
     const [newClassCost, setNewClassCost] = useState(null);
+    const [totalCost, setTotalCost] = useState(918000);
 
+
+    const reRender = () => setRandom(Math.random());
     const navigate = useNavigate();
     const getYourClasses = () => {
         Axios({
@@ -75,9 +80,33 @@ export default function Dashboard() {
             url: "/getAllAddableClasses"
         }).then((res) => {
             setAllAddableClasses(res.data)
+            res.data.forEach((item) => {console.log(parseFloat(item.tuition_cost.replace(/\$/,""))) 
+            setTotalCost(currentCost => currentCost + parseFloat(item.tuition_cost.replace(/\$/,"")))})
         })
     }
 
+    const removeStudentClass = (classId) => {
+      Axios({
+        method: "POST",
+        data: {
+          selectedClass: classId
+        },
+        withCredentials: true,
+        url: "/removeClass"
+      }).then((res) => {
+        getYourClasses();
+        getAllAddableClasses();
+      })
+    }
+    const getAllUsers = () => {
+      Axios({
+        method: "GET",
+        withCredentials: true,
+        url: "/getAllUsers"
+      }).then((res) => {
+        setAllUsers(res.data)
+      })
+    }
 
     const getAllClasses = () => {
         Axios({
@@ -88,10 +117,24 @@ export default function Dashboard() {
             setAllClasses(res.data)
         })
     }
+    const deleteUser = (thisUser) => {
+      Axios({
+        method: "POST",
+        data: {
+          selectedUser: thisUser
+        },
+        withCredentials: true,
+        url: "/deleteUser"
+      })
+    }
+
+
       useEffect(() => {
         getYourClasses()
         getLoginUser()
         getAllClasses()
+        getAllAddableClasses()
+        getAllUsers()
       }, [])
 
     //   admin
@@ -148,7 +191,7 @@ export default function Dashboard() {
             </div>
             <div id="courses">
             <h1>Your Classes</h1>
-                {classes ?  <div class="getClasses">{classes.map((item)=><div key={item._id} class="class"><h1>{item.title}</h1><div class="line"></div><p>{item.description}</p></div>)}</div> : null}
+            {classes ?  <div class="getClasses">{classes.map((item)=><div key={item.id} class="class"><h1>{item.title}</h1><div class="line"></div><p>{item.description}</p><button onClick={() => {removeStudentClass(item.id); reRender()}}>remove</button></div>)}</div> : null}
             </div>
             <div id="createCourse">
                                     <div class="createClass">
@@ -204,7 +247,7 @@ export default function Dashboard() {
                 <h1>Delete a course</h1>
                 <p>Note: This Action Cannot Be Reversed</p>
                 <div class="classList">
-                {allClasses ? <ol>{allClasses.map((item) => <li key={item.id}><h1>{item.title}</h1> <button onClick={() => deleteClass(item.id)}>Delete Class</button></li>)}</ol> : null}
+                {allClasses ? <ol>{allClasses.map((item) => <li key={item.id}><h1>{item.title}</h1> <button onClick={() => {deleteClass(item.id); reRender()}}>Delete Class</button></li>)}</ol> : null}
             
                 </div>
             </div>
@@ -217,7 +260,7 @@ export default function Dashboard() {
                 </div>
 
 
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-scrollable">
                                 <div class="modal-content">
                                 <div class="modal-header">
@@ -226,7 +269,8 @@ export default function Dashboard() {
                                 </div>
                                 <div class="modal-body">
                                     <div class="userList">
-                                    <ul>
+                                    {allUsers ? <ul>{allUsers.map((item) => <li key={item.id}>{item.username} <button onClick={() => {deleteUser(item.id); reRender()}}>Delete User</button></li>)}</ul> : null}
+                                    {/* <ul>
                                         <li>John<button>Delete User</button></li>
                                         <li>Joshua<button>Delete User</button></li>
                                         <li>Charmander<button>Delete User</button></li>
@@ -243,7 +287,7 @@ export default function Dashboard() {
                                         <li>Stanley<button>Delete User</button></li>
                                         <li>Rylee<button>Delete User</button></li>
                                         <li>Jacob<button>Delete User</button></li>
-                                    </ul>
+                                    </ul> */}
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -257,7 +301,7 @@ export default function Dashboard() {
             <div id="addCourses">
                 <div class="scrollDiv">
     
-                    {allAddableClasses ? <ol>{allAddableClasses.map((item) => <li key={item.id}><h1>{item.title}</h1> <button onClick={() => addStudentClass(item.id)}>Add Class</button></li>)}</ol> : null}
+                {allAddableClasses ? <ol>{allAddableClasses.map((item) => <li key={item.id} onClick={(e) => { e.currentTarget === e.target && navigate(('/class/' + item.id))}}>{item.title} <button onClick={() => {addStudentClass(item.id); reRender()}}>Add Class</button></li>)}</ol> : null}
                 </div>
                 <div class="addClass">
                     <h1>Add Class</h1>
@@ -295,13 +339,7 @@ export default function Dashboard() {
                   <div class="desc2"><h3>Cost</h3></div>
                 </div>
                 <ul class="classes">
-                  <li>Data Structures<p>$900</p></li>
-                  <li>Computer Architecture<p>$900</p></li>
-                  <li>Advanced Algorithms<p>$900</p></li>
-                  <li>Networking & Security<p>$900</p></li>
-                  <li>Object-Oriented Programming<p>$900</p></li>
-                  <li>Database Design & Management<p>$900</p></li>
-                  <li>Software Engineering<p>$900</p></li>
+                {classes ?  <>{classes.map((item)=><li>{item.title}<p>{item.tuition_cost}</p></li>)}</> : null}
                   <li>Yearbook<p>$900</p></li>
                   <li>Pencils<p>$900</p></li>
                   <li>Calculator<p>$900</p></li>
@@ -324,7 +362,7 @@ export default function Dashboard() {
                   <li>Annoyance Fee<p>$900</p></li>
                   <li>Just Because Fee<p>$900000</p></li>
                   <br />
-                  <h1 class="paperTotal">Total Cost: $925,200</h1>
+                  <h1 class="paperTotal">Total Cost: ${totalCost}</h1>
                 </ul>
 
                 </div>

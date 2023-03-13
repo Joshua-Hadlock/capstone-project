@@ -10,7 +10,7 @@ pool.connect();
 
 
 exports.getAllUsers = async (req, res) => {
-    pool.query(`SELECT * from users limit 3`, (err, results) => {
+    pool.query(`SELECT * from users`, (err, results) => {
         if (err) res.status(200).json('an error occured when trying to get all the users');
         for (let row of results.rows) {
             console.log(JSON.stringify(row));
@@ -121,6 +121,12 @@ exports.addStudentClass = async (req, res) => {
 
 exports.removeStudentClass = async (req, res) => {
     pool.query(`delete from user_course where courses_id = $1 and users_id = $2`, [req.body.selectedClass, res.locals.user.id], (err) => {
+        if (err) throw err;
+    })
+}
+
+exports.deleteUser = async (req, res) => {
+    pool.query(`delete from users where id = $1`, [req.body.selectedUser], (err) => {
         if (err) throw err;
     })
 }

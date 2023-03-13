@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function Dashboard() {
+    const [random, setRandom] = useState(Math.random());
     const [success, setSuccess] = useState(null);
     const [classes, setClasses] = useState(null);
     const [username, setUsername] = useState(null);
@@ -13,6 +14,8 @@ export default function Dashboard() {
     const [userData, setUserData] = useState(null);
     const [totalCost, setTotalCost] = useState(918000);
     const navigate = useNavigate();
+
+    const reRender = () => setRandom(Math.random());
     const getYourClasses = () => {
         Axios({
           method: "GET",
@@ -81,10 +84,6 @@ export default function Dashboard() {
           withCredentials: true,
           url: "/addClass",
         }).then((res) => {
-          console.log('I am very annoying')
-          getYourClasses()
-          getAllAddableClasses()
-          this.setState({ state: this.state });
         })
       }
     
@@ -101,7 +100,8 @@ export default function Dashboard() {
         getLoginUser()
         getYourClasses()
         getAllAddableClasses()
-      }, [])
+        console.log('I RERENDERED')
+      }, [random])
 
       
 
@@ -123,7 +123,7 @@ export default function Dashboard() {
             </div>
             <div id="courses">
                 <h1>Your Classes</h1>
-                {classes ?  <div class="getClasses">{classes.map((item)=><div key={item.id} class="class"><h1>{item.title}</h1><div class="line"></div><p>{item.description}</p><button onClick={() => removeStudentClass(item.id)}>remove</button></div>)}</div> : null}
+                {classes ?  <div class="getClasses">{classes.map((item)=><div key={item.id} class="class"><h1>{item.title}</h1><div class="line"></div><p>{item.description}</p><button onClick={() => {removeStudentClass(item.id); reRender()}}>remove</button></div>)}</div> : null}
                 {/* <div class="getClasses">
                   <div class="class">
                     <h1>Software Engineering</h1>
@@ -135,7 +135,7 @@ export default function Dashboard() {
             </div>
             <div id="addCourses">
                 <div class="scrollDiv">
-                    {allClasses ? <ol>{allClasses.map((item) => <li key={item.id} onClick={(e) => {navigate(('/class/' + item.id))}}>{item.title} <button onClick={() => addStudentClass(item.id)}>Add Class</button></li>)}</ol> : null}
+                    {allClasses ? <ol>{allClasses.map((item) => <li key={item.id} onClick={(e) => { e.currentTarget === e.target && navigate(('/class/' + item.id))}}>{item.title} <button onClick={() => {addStudentClass(item.id); reRender()}}>Add Class</button></li>)}</ol> : null}
                 </div>
                 <div class="addClass">
                     <h1>Add Class</h1>
