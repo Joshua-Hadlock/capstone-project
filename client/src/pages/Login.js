@@ -112,7 +112,7 @@ export default function Login() {
                 <div class="headerRight">
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li><a href="http://localhost:3001/">Trivia</a></li>
+                        <li><a href="/classes">Classes</a></li>
                         <li><a href="/about">About</a></li>
                     </ul> 
                 </div>
@@ -130,7 +130,7 @@ export default function Login() {
                   placeholder="Password"
                   onChange={(e) => setLoginPassword(e.target.value)}
                 />
-                <p>forgot your password click <a href="">here</a></p>
+                <p>forgot your password click <a href="/test">here</a></p>
                 {/* <a href="/dashboard"> */}
                   <button onClick={login}>Submit</button>
                 {/* </a> */}

@@ -50,9 +50,8 @@ export default function Classes() {
         </div>
         <div className="headerRight">
             <ul>
-                <li><a href="http://localhost:3001/">Trivia</a></li>
                 <li><a href="/">Home</a></li>
-                <li><a href="/">Sign In</a></li>
+                <li><a href="/login">Sign In</a></li>
             </ul> 
         </div>
     </div>
