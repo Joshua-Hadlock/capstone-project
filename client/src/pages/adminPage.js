@@ -11,7 +11,7 @@ export default function Dashboard() {
     const [username, setUsername] = useState(null);
     const [allClasses, setAllClasses] = useState(null);
     const [data, setData] = useState(null);
-
+    const [allAddableClasses, setAllAddableClasses] = useState(null);
     const [newClassId, setNewClassId] = useState(null);
     const [newClassTitle, setNewClassTitle] = useState(null);
     const [newClassDescription, setNewClassDescription] = useState(null);
@@ -55,11 +55,11 @@ export default function Dashboard() {
         });
       }
         
-    const addStudentClass = () => {
+    const addStudentClass = (chosenClassId) => {
         Axios({
           method: "POST",
           data: {
-            selectedClass: classId,
+            selectedClass: chosenClassId,
           },
           withCredentials: true,
           url: "/addClass",
@@ -68,6 +68,17 @@ export default function Dashboard() {
         })
       }
     
+    const getAllAddableClasses = () => {
+        Axios({
+            method: "GET",
+            withCredentials: true,
+            url: "/getAllAddableClasses"
+        }).then((res) => {
+            setAllAddableClasses(res.data)
+        })
+    }
+
+
     const getAllClasses = () => {
         Axios({
             method: "GET",
@@ -102,6 +113,17 @@ export default function Dashboard() {
         }).then((res) => console.log(res))
       }
     
+    const deleteClass = (chosenClassId) => {
+      Axios({
+        method: "POST",
+        data: {
+          selectedClass: chosenClassId
+        },
+        withCredentials: true,
+        url: "/deleteClass"
+
+      })
+    }
 
       
 
@@ -182,19 +204,8 @@ export default function Dashboard() {
                 <h1>Delete a course</h1>
                 <p>Note: This Action Cannot Be Reversed</p>
                 <div class="classList">
-                <ol>
-                      <li><h1>Introduction to Computer Science</h1><button>Delete Class</button></li> 
-                      <li><h1>Data Structures</h1><button>Delete Class</button></li> 
-                      <li><h1>Computer Architecture</h1><button>Delete Class</button></li> 
-                      <li><h1>Advanced Algorithms</h1><button>Delete Class</button></li> 
-                      <li><h1>Networking & Security</h1><button>Delete Class</button></li> 
-                      <li><h1>Object-Oriented Programming</h1><button>Delete Class</button></li> 
-                      <li><h1>Database Design & Management</h1><button>Delete Class</button></li> 
-                      <li><h1>Software Engineering</h1><button>Delete Class</button></li> 
-                      <li><h1>Operating Systems</h1><button>Delete Class</button></li> 
-                      <li><h1>Computer Graphics</h1><button>Delete Class</button></li> 
-                      <li><h1>Introduction to Information Systems</h1><button>Delete Class</button></li> 
-                    </ol>
+                {allClasses ? <ol>{allClasses.map((item) => <li key={item.id}><h1>{item.title}</h1> <button onClick={() => deleteClass(item.id)}>Delete Class</button></li>)}</ol> : null}
+            
                 </div>
             </div>
             <div id="userList">
@@ -246,20 +257,7 @@ export default function Dashboard() {
             <div id="addCourses">
                 <div class="scrollDiv">
     
-                    {/* {allClasses ? <ol>{allClasses.map((item) => <li key={item._id}><h1>{item.title}</h1> <button>Add Class</button></li>)}</ol> : null} */}
-                    <ol>
-                      <li><h1>Introduction to Computer Science</h1><button>Add Class</button></li> 
-                      <li><h1>Data Structures</h1><button>Add Class</button></li> 
-                      <li><h1>Computer Architecture</h1><button>Add Class</button></li> 
-                      <li><h1>Advanced Algorithms</h1><button>Add Class</button></li> 
-                      <li><h1>Networking & Security</h1><button>Add Class</button></li> 
-                      <li><h1>Object-Oriented Programming</h1><button>Add Class</button></li> 
-                      <li><h1>Database Design & Management</h1><button>Add Class</button></li> 
-                      <li><h1>Software Engineering</h1><button>Add Class</button></li> 
-                      <li><h1>Operating Systems</h1><button>Add Class</button></li> 
-                      <li><h1>Computer Graphics</h1><button>Add Class</button></li> 
-                      <li><h1>Introduction to Information Systems</h1><button>Add Class</button></li> 
-                    </ol>
+                    {allAddableClasses ? <ol>{allAddableClasses.map((item) => <li key={item.id}><h1>{item.title}</h1> <button onClick={() => addStudentClass(item.id)}>Add Class</button></li>)}</ol> : null}
                 </div>
                 <div class="addClass">
                     <h1>Add Class</h1>

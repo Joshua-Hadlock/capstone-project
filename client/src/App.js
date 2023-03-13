@@ -1,5 +1,6 @@
 // in client src/app.js
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom"
+import axios from "axios";
 import "./style/css/style.css";
 
 
@@ -23,6 +24,7 @@ import NavBar from "./components/navbar";
 
 // Router
 function App() {
+  axios.defaults.baseURL = 'http://localhost:4001';
     return(
       <Router>
         <Routes>

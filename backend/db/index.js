@@ -11,7 +11,7 @@ pool.connect();
 
 exports.getAllUsers = async (req, res) => {
     pool.query(`SELECT * from users limit 3`, (err, results) => {
-        if (err) throw err;
+        if (err) res.status(200).json('an error occured when trying to get all the users');
         for (let row of results.rows) {
             console.log(JSON.stringify(row));
         }
@@ -21,7 +21,7 @@ exports.getAllUsers = async (req, res) => {
 
 exports.findClass = async (req, res) => {
     pool.query(`SELECT * from courses where title ilike $1`, [`%${req.body.searchClassName}%`], (err, results) => {
-        if (err) throw err;
+        if (err) res.status(200).json('error trying to get courses');
         for (let row of results.rows) {
             console.log(JSON.stringify(row));
         }
@@ -51,7 +51,8 @@ exports.getLoginUser = async (req, res) => {
 
 exports.register = async (req, res) => {
     pool.query(`insert into users (username, password, email, phone, address) values ($1, $2, $3, $4, $5)`, [req.body.username, req.body.password, req.body.email, req.body.phone, req.body.address], (err) => {
-        if (err) throw err;
+        if (err) return 'cannot create user, please try again with different credentials';
+        return 'user created';
     })
 }
 
