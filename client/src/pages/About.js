@@ -16,9 +16,9 @@ export default function TitlePage() {
                 </div>
                 <div className="headerRight">
                     <ul>
-                        <li><a href="http://localhost:3001/">Trivia</a></li>
+                        <li><a href="/classes">Classes</a></li>
                         <li><a href="/">Home</a></li>
-                        <li><a href="/">Sign In</a></li>
+                        <li><a href="/login">Sign In</a></li>
                     </ul> 
                 </div>
             </div>
@@ -48,7 +48,7 @@ export default function TitlePage() {
                     <div className="josh"></div>
                 </div>
             </div>
-            {/* artwork */}
+    
         </div>
     )
 }

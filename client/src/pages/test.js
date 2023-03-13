@@ -96,7 +96,7 @@ export default function Testing() {
                 </div>
                 <div className="headerRight">
                     <ul>
-                        <li><a href="http://localhost:3001/">Trivia</a></li>
+                        <li><a href="/classes">Classes</a></li>
                         <li><a href="/">Home</a></li>
                         <li><a href="/login">Sign In</a></li>
                     </ul> 

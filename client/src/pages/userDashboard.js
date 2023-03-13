@@ -135,7 +135,7 @@ export default function Dashboard() {
             </div>
             <div id="addCourses">
                 <div class="scrollDiv">
-                    {allClasses ? <ol>{allClasses.map((item) => <li key={item.id} onClick={(e) => {navigate(('/class/' + item.id))}}>{item.title} <button onClick={() => addStudentClass(item.id)}>Add Class</button></li>)}</ol> : null}
+                    {allClasses ? <ol>{allClasses.map((item) => <li href="/classes" key={item.id} onClick={(e) => {navigate(('/class/' + item.id))}}>{item.title} <button onClick={() => addStudentClass(item.id)}>Add Class</button></li>)}</ol> : null}
                 </div>
                 <div class="addClass">
                     <h1>Add Class</h1>

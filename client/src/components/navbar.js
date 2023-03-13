@@ -32,16 +32,16 @@ export default function NavBar({username}) {
                 <div class="headerRight">
                     <ul>
                     <div class="dropdown">
-                        <li><a href="http://localhost:3001/">Trivia</a></li>
+                        <li><a href="/classes">Classes</a></li>
                         <li><a href="/about">About</a></li>
                         <li><a href="/Login">Sign In</a></li>
                         
-                        <li class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">{username}</li>
+                        <li style={{marginLeft:"10px"}} class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">{username}</li>
                         <ul class="dropdown-menu">
 
                         <div class="logout">
                             <h1 class="logoutH1" style={{fontSize:"15px", textAlign:"center", textTransform:'none'}}>Logout</h1>
-                            <button style={{marginLeft:"45px",fontSize:"10px", width:"70px", height:"20px", border:"none", borderRadius:"5px", backgroundColor:"#FDBC58"}} class="logoutButton" onClick={logout}>Submit</button>
+                            <button style={{marginLeft:"45px",fontSize:"10px", width:"70px", height:"20px", border:"none", borderRadius:"5px", backgroundColor:"#FDBC58"}} class="logoutButton" onClick={logout}>Here</button>
                             {message ? <h1>{message}</h1> : null}
                         </div>
 

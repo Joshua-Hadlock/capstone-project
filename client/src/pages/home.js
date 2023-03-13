@@ -13,7 +13,7 @@ export default function Home() {
                 </div>
                 <div class="headerRight">
                     <ul>
-                        <li><a href="http://localhost:3001/">Trivia</a></li>
+                        <li><a href="/classes">Classes</a></li>
                         <li><a href="/about">About</a></li>
                         <li><a href="/Login">Sign In</a></li>
                     </ul> 
@@ -22,7 +22,7 @@ export default function Home() {
             <div class="greeting">
                 <div class="greetingText">EDUCATION YOUR DUCKLINGS WILL ENJOY
                 <a href="/test"><button>SIGN UP NOW</button></a>
-                <p class="login">ALREADY HAVE AN ACCOUNT LOG IN HERE</p>
+                <p class="login">ALREADY HAVE AN ACCOUNT LOG IN <a href="/login">HERE</a></p>
                 </div>
                 <div class="books"></div>
             </div>
