@@ -24,7 +24,7 @@ import NavBar from "./components/navbar";
 
 // Router
 function App() {
-  axios.defaults.baseURL = 'http://localhost:4001';
+  // axios.defaults.baseURL = 'http://localhost:4001';
     return(
       <Router>
         <Routes>
