@@ -133,7 +133,7 @@ export default function Testing() {
             />
             <button onClick={register}>Submit</button>
           </div>
-          <div>
+          <div class="validNumber">
             {registerPhone || 'must put a valid phone number'}
           </div>
           <div class="terms">
