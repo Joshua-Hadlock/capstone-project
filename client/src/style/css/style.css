@@ -147,6 +147,9 @@ body {
   color: white;
   font-size: 20px;
 }
+.body .greeting .greetingText a {
+  color: white;
+}
 .body .greeting .greetingText .login {
   font-size: 15px;
   width: 500px;
@@ -1721,7 +1724,7 @@ body {
   border-radius: 5px;
   width: 250px;
   height: 40px;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 .body2 .signUpContent .readTerms {
   position: relative;
@@ -1747,6 +1750,7 @@ body {
 }
 .body2 .signUpContent .register input {
   width: 100px;
+  margin-left: 10px;
 }
 .body2 .signUpContent .register button {
   background-color: #FDBC58;
@@ -1762,6 +1766,12 @@ body {
 .body2 .signUpContent .register h1 {
   font-family: "Annie Use Your Telescope", cursive;
   font-size: 70px;
+}
+.body2 .signUpContent .validNumber {
+  position: relative;
+  top: 35px;
+  color: red;
+  font-size: 10px;
 }
 .body2 .loginUser {
   margin-top: 20px;

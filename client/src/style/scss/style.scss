@@ -163,6 +163,9 @@ body {
                 color:white;
                 font-size:20px;
             }
+            a {
+                color:white;
+            }
             .login {
                 font-size:15px;
                 width:500px;
@@ -1845,7 +1848,7 @@ body {
                     border-radius:5px;
                     width:250px;
                     height:40px;
-                    margin-top:20px;
+                    margin-top:50px;
                 }
             }
             .readTerms {
@@ -1871,6 +1874,7 @@ body {
                 top:20px;
                 input {
                     width:100px;
+                    margin-left:10px;
                 }
                 button {
                     background-color:$primary-color;
@@ -1887,6 +1891,12 @@ body {
                     font-family:$cursive-font;
                     font-size:70px;
                 }
+            }
+            .validNumber {
+                position:relative;
+                top:35px;
+                color:red;
+                font-size:10px;
             }
         }
         .loginUser {
