@@ -5,7 +5,7 @@ export default function Home() {
                 <div class="headerLeft">
                     <ul>
                         <li><a href="/help">Help</a></li>
-                        <li><a href="/test">Sign Up</a></li>
+                        <li><a href="/register">Sign Up</a></li>
                     </ul>
                 </div>
                 <div class="headerMiddle">
@@ -21,7 +21,7 @@ export default function Home() {
             </div>
             <div class="greeting">
                 <div class="greetingText">EDUCATION YOUR DUCKLINGS WILL ENJOY
-                <a href="/test"><button>SIGN UP NOW</button></a>
+                <a href="/register"><button>SIGN UP NOW</button></a>
                 <p class="login">ALREADY HAVE AN ACCOUNT LOG IN <a href="/login">HERE</a></p>
                 </div>
                 <div class="books"></div>

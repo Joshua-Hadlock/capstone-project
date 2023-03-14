@@ -23,7 +23,7 @@ export default function NavBar({username}) {
                 <div class="headerLeft">
                     <ul>
                         <li><a href="/help">Help</a></li>
-                        <li><a href="/test">Sign Up</a></li>
+                        <li><a href="/register">Sign Up</a></li>
                     </ul>
                 </div>
                 <div class="headerMiddle">

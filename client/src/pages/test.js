@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import NavBar from "../components/navbar";
+import { useNavigate } from "react-router-dom";
 
 export default function Testing() {
   const [registerUsername, setRegisterUsername] = useState("");
@@ -26,6 +27,7 @@ export default function Testing() {
   const [newClassHours, setNewClassHours] = useState(null);
   const [newClassCost, setNewClassCost] = useState(null);
   const [allClasses, setAllClasses] = useState(null);
+  const navigate = useNavigate()
 
   const formatPhoneNumber = (phoneNumberString) => {
     const cleaned = ('' + phoneNumberString).replace(/\D/g, '');
@@ -50,6 +52,7 @@ export default function Testing() {
       withCredentials: true,
       url: "/register",
     }).then((res) => console.log(res));
+    navigate('/login')
   };
 
   // const createNewClass = () => {
@@ -112,6 +115,7 @@ export default function Testing() {
               onChange={(e) => setRegisterUsername(e.target.value)}
             />
             <input
+            type={'password'}
               placeholder="Password"
               onChange={(e) => setRegisterPassword(e.target.value)}
             />

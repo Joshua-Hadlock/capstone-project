@@ -103,7 +103,7 @@ export default function Login() {
                 <div class="headerLeft">
                     <ul>
                         <li><a href="/help">Help</a></li>
-                        <li><a href="/test">Sign Up</a></li>
+                        <li><a href="/register">Sign Up</a></li>
                     </ul>
                 </div>
                 <div class="headerMiddle">
@@ -130,7 +130,7 @@ export default function Login() {
                   placeholder="Password"
                   onChange={(e) => setLoginPassword(e.target.value)}
                 />
-                <p>forgot your password click <a href="/test">here</a></p>
+                <p>forgot your password click <a href="/register">here</a></p>
                 {/* <a href="/dashboard"> */}
                   <button onClick={login}>Submit</button>
                 {/* </a> */}
@@ -140,11 +140,11 @@ export default function Login() {
                 <div class="blackout">
                   <h1>Welcome Back !</h1>
                   <p>Dont have an account ? sign up and see all benefits </p>
-                  <a href="/test"><button>Sign Up</button></a>
+                  <a href="/register"><button>Sign Up</button></a>
                 </div>
               </div>
               </div>
-              /* <div class="loginUser">
+              {/* /* <div class="loginUser">
             <h1>Get Login User</h1>
             <button onClick={getLoginUser}>Submit</button>
             {data ? <h1>Welcome Back {data.username}</h1> : null}
@@ -153,7 +153,7 @@ export default function Login() {
             <h1>Get All User</h1>
             <button onClick={getAllUsers}>Submit</button>
             {userList ? <h1>User List <ul>{userList.map((item)=><li key={item._id}>{item.username}</li>)}</ul></h1> : null}
-          </div>
+          </div> */}
 
           {/* Get Classes */}
           {/* <div class="getClasses">

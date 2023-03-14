@@ -123,7 +123,7 @@ export default function Dashboard() {
             </div>
             <div id="courses">
                 <h1>Your Classes</h1>
-                {classes ?  <div class="getClasses">{classes.map((item)=><div key={item.id} class="class"><h1>{item.title}</h1><div class="line"></div><p>{item.description}</p><button onClick={() => {removeStudentClass(item.id); reRender()}}>remove</button></div>)}</div> : null}
+                {classes ?  <div class="getClasses">{classes.map((item)=><div key={item.id} class="class" onClick={(e) => { e.currentTarget === e.target && navigate(('/class/' + item.id))}}><h1>{item.title}</h1><div class="line"></div><p>{item.description}</p><button onClick={() => {removeStudentClass(item.id); reRender()}}>remove</button></div>)}</div> : null}
                 {/* <div class="getClasses">
                   <div class="class">
                     <h1>Software Engineering</h1>
