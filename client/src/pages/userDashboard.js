@@ -145,7 +145,7 @@ export default function Dashboard() {
                       <h1>Recently Added Classes </h1>
                       <div class="addedClasses">
                         <h1>Introduction to Computer Science</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamcorper sit amet risus nullam eget felis eget nunc lobortis.</p>
+                        <p>This course introduces students to the basics of Information Systems, including their components and the processes used to manage them. Students will learn about computer hardware...</p>
                       </div>
                     </div>
                     
